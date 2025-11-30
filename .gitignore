@@ -1,0 +1,73 @@
+# Dependencies
+titan-shield/node_modules/
+titan-shield/.pnp
+titan-shield/.pnp.js
+node_modules/
+
+# Testing
+titan-shield/coverage/
+
+# Next.js
+titan-shield/.next/
+titan-shield/out/
+
+# Production
+titan-shield/build/
+titan-shield/dist/
+
+# Misc
+.DS_Store
+*.pem
+.AppleDouble
+.LSOverride
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+titan-shield/.env*.local
+titan-shield/.env.local
+titan-shield/.env
+.env
+.env*.local
+
+# Vercel
+titan-shield/.vercel
+
+# TypeScript
+titan-shield/*.tsbuildinfo
+titan-shield/next-env.d.ts
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Keep these folders
+!docs/
+!assets/
+!titan-shield/public/
