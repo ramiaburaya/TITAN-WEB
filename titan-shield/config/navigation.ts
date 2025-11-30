@@ -22,6 +22,33 @@ export const NAVIGATION_LINKS = [
   },
 ] as const;
 
+export const SERVICES_DROPDOWN = [
+  {
+    label: "OffSec & Pen Testing",
+    href: "/services/offsec-pen-testing",
+  },
+  {
+    label: "Endpoint & Mobile Security",
+    href: "/services/endpoint-mobile-security",
+  },
+  {
+    label: "Consulting & Compliance",
+    href: "/services/consulting-compliance",
+  },
+  {
+    label: "Managed Security Services (MSSP)",
+    href: "/services/mssp",
+  },
+  {
+    label: "Technical Security & Infrastructure Protection",
+    href: "/services/infrastructure-protection",
+  },
+  {
+    label: "Cybersecurity Training & Awareness",
+    href: "/services/training-awareness",
+  },
+] as const;
+
 export const FOOTER_LINKS = {
   quickLinks: [
     { label: "About Us", href: "/about" },

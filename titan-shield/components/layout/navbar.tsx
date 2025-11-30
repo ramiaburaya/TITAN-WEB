@@ -4,12 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { NAVIGATION_LINKS } from "@/config/navigation";
+import { NAVIGATION_LINKS, SERVICES_DROPDOWN } from "@/config/navigation";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   const isActive = (href: string) => {
@@ -38,20 +39,67 @@ export function Navbar() {
           {/* Desktop Navigation - Centered */}
           <div className="hidden md:flex items-center justify-center flex-1">
             <nav className="flex items-center gap-12 text-base font-medium">
-              {NAVIGATION_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "transition-colors hover:text-brand-purple hover:font-semibold focus:outline-none focus-visible:underline",
-                    isActive(link.href)
-                      ? "text-brand-purple font-semibold"
-                      : "text-white"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {NAVIGATION_LINKS.map((link) => {
+                // Special handling for Services link with dropdown
+                if (link.label === "Services") {
+                  return (
+                    <div
+                      key={link.href}
+                      className="relative"
+                      onMouseEnter={() => setServicesDropdownOpen(true)}
+                      onMouseLeave={() => setServicesDropdownOpen(false)}
+                    >
+                      <Link
+                        href={link.href}
+                        className={cn(
+                          "flex items-center gap-1 transition-colors hover:text-brand-purple hover:font-semibold focus:outline-none focus-visible:underline",
+                          isActive(link.href)
+                            ? "text-brand-purple font-semibold"
+                            : "text-white"
+                        )}
+                      >
+                        {link.label}
+                        <ChevronDown className="h-4 w-4" />
+                      </Link>
+
+                      {/* Services Dropdown */}
+                      {servicesDropdownOpen && (
+                        <div className="absolute left-0 top-full pt-2 z-50">
+                          <div className="w-[600px] bg-[#1d1c1c] rounded-lg shadow-xl border border-brand-dark-light overflow-hidden">
+                            <div className="grid grid-cols-2 gap-1 p-4">
+                              {SERVICES_DROPDOWN.map((service) => (
+                                <Link
+                                  key={service.href}
+                                  href={service.href}
+                                  className="px-4 py-3 rounded-md text-sm text-gray-300 hover:bg-brand-dark-light hover:text-brand-purple transition-all"
+                                >
+                                  {service.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                // Regular navigation links
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "transition-colors hover:text-brand-purple hover:font-semibold focus:outline-none focus-visible:underline",
+                      isActive(link.href)
+                        ? "text-brand-purple font-semibold"
+                        : "text-white"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
           </div>
 
