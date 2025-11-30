@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* Titan Shield Brand Theme - Tailwind v4 CSS-first Configuration */
+
+:root {
+  /* Brand Colors (extracted from screenshots) */
+  --brand-purple: #7b3ff2;
+  --brand-purple-dark: #5b21b6;
+  --brand-dark: #0f172a;
+  --brand-dark-light: #1e293b;
+  --brand-gray: #475569;
+  --brand-gray-light: #94a3b8;
+
+  /* Gradient colors for effects */
+  --gradient-from: #7b3ff2;
+  --gradient-to: #ec4899;
+}
+
+@theme {
+  /* Brand Color Palette */
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-purple-dark: var(--brand-purple-dark);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-dark-light: var(--brand-dark-light);
+  --color-brand-gray: var(--brand-gray);
+  --color-brand-gray-light: var(--brand-gray-light);
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Container */
+  --container-max-width: 1280px;
+  --container-padding: 1rem;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+}
+
+/* Base Styles */
+@layer base {
+  * {
+    border-color: theme('colors.brand-dark-light');
+  }
+
+  body {
+    @apply bg-brand-dark text-white antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  .container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-purple to-pink-500 bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-brand-purple via-purple-700 to-pink-600;
+  }
+}
+
+/* Utility Styles */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

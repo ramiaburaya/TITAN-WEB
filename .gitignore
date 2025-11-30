@@ -58,6 +58,8 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+__MACOSX/
+.DS_Store
 
 # Logs
 logs/
