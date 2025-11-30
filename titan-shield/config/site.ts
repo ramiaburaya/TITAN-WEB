@@ -10,9 +10,8 @@ export const SITE_CONFIG = {
   ogImage: "/og-image.jpg",
 
   links: {
-    facebook: "https://facebook.com/titanshield",
-    linkedin: "https://linkedin.com/company/titanshield",
-    instagram: "https://instagram.com/titanshield",
+    facebook: "https://www.facebook.com/PS.TitanShield",
+    linkedin: "https://www.linkedin.com/company/titan-shield/",
   },
 
   contact: {
