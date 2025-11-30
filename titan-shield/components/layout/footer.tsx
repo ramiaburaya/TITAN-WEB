@@ -7,7 +7,7 @@ import { FOOTER_LINKS } from "@/config/navigation";
 
 export function Footer() {
   return (
-    <footer className="bg-[#141111] text-gray-200">
+    <footer className="bg-[#211E1E] text-gray-200">
       <div className="mx-auto max-w-6xl px-6 py-12">
         {/* Top Brand Row - Logo + Social Icons */}
         <div className="flex items-center justify-between pb-8">
