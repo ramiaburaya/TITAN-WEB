@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Mail, CheckCircle } from "lucide-react";
+import Image from "next/image";
 
 export function NewsletterSection() {
   const [email, setEmail] = useState("");
@@ -11,7 +9,7 @@ export function NewsletterSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement newsletter subscription logic in Phase 3
+    // TODO: Implement newsletter subscription logic
     console.log("Newsletter subscription:", email);
     setIsSubmitted(true);
     setEmail("");
@@ -21,45 +19,67 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="py-20 bg-brand-dark border-t border-brand-dark-light">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-purple/10 mb-6">
-            <Mail className="h-8 w-8 text-brand-purple" />
-          </div>
+    <section className="relative min-h-[400px] flex items-center overflow-hidden">
+      {/* Fixed parallax background */}
+      <div className="fixed inset-0 -z-10">
+        <Image
+          src="/assets/newsletter-bg.png"
+          alt="Titan Shield newsletter background with cybersecurity branding"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Stay Updated on Cybersecurity Threats
+      {/* Scrolling content */}
+      <div className="relative z-10 w-full py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-6 md:px-8">
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight max-w-5xl">
+            Join Our Cybersecurity Newsletter
+            <br />
+            <span className="text-white/90">for Exclusive Tips & News</span>
           </h2>
-          <p className="text-gray-400 text-lg mb-8">
-            Get the latest security insights, threat intelligence, and best
-            practices delivered to your inbox monthly.
-          </p>
 
+          {/* Form */}
           {isSubmitted ? (
-            <div className="flex items-center justify-center gap-2 text-green-400 font-semibold">
-              <CheckCircle className="h-5 w-5" />
-              <span>Thank you for subscribing!</span>
+            <div className="flex items-center gap-3 text-green-400 text-lg font-semibold bg-green-400/10 border border-green-400/30 rounded-lg px-6 py-4 max-w-md">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>Thank you for joining!</span>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-              <Input
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-3xl">
+              <input
                 type="email"
-                placeholder="Enter your email address"
+                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1"
+                className="w-full px-6 py-3.5 rounded-lg bg-black/40 backdrop-blur-sm border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
               />
-              <Button type="submit" size="lg" className="sm:w-auto">
-                Subscribe
-              </Button>
+              <button
+                type="submit"
+                className="w-fit px-8 py-3.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-medium transition-all duration-200"
+              >
+                Join the Forces
+              </button>
             </form>
           )}
-
-          <p className="text-sm text-gray-500 mt-4">
-            We respect your privacy. Unsubscribe at any time.
-          </p>
         </div>
       </div>
     </section>

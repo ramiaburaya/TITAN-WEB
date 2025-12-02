@@ -144,41 +144,41 @@
   0%, 100% {
     transform: translateY(0);
   }
-  /* First bounce - full amplitude */
+  /* First bounce - full amplitude (reduced by 20%) */
   5% {
-    transform: translateY(-20px);
+    transform: translateY(-16px);
   }
   10% {
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   15% {
-    transform: translateY(-20px);
+    transform: translateY(-16px);
   }
   20% {
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
-  /* Second bounce - half amplitude */
+  /* Second bounce - half amplitude (reduced by 20%) */
   25% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
   30% {
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
   35% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
   40% {
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
-  /* Third bounce - return to original */
+  /* Third bounce - return to original (reduced by 20%) */
   45% {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
   }
   50% {
-    transform: translateY(5px);
+    transform: translateY(4px);
   }
   55% {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
   }
   60% {
     transform: translateY(0);
