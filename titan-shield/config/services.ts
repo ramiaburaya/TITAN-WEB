@@ -12,6 +12,7 @@ export interface Service {
   title: string;
   shortTitle: string;
   icon: LucideIcon;
+  image: string; // decorative image for card
   description: string;
   features: string[];
   benefits: string[];
@@ -22,11 +23,12 @@ export const SERVICES: Service[] = [
   {
     id: "offsec-pen-testing",
     slug: "offsec-pen-testing",
-    title: "OffSec & Pen Testing",
+    title: "Offensive Security & Penetration Testing",
     shortTitle: "Offensive Security & Penetration Testing",
     icon: Shield,
+    image: "/assets/service-offsec.png",
     description:
-      "Professional red team and penetration testing services to identify vulnerabilities before attackers do. Our offensive security experts simulate real-world attacks to uncover weaknesses in your infrastructure.",
+      "Simulating real-world cyberattacks, our ethical hacking services expose vulnerabilities before hackers can exploit them.",
     features: [
       "Advanced red team operations",
       "Web application penetration testing",
@@ -52,8 +54,9 @@ export const SERVICES: Service[] = [
     title: "Endpoint & Mobile Security",
     shortTitle: "Endpoint & Mobile Device Protection",
     icon: Smartphone,
+    image: "/assets/service-endpoint.png",
     description:
-      "Comprehensive endpoint and mobile security solutions to protect your devices, data, and users from sophisticated threats. Secure your workforce across all platforms and locations.",
+      "Harnessing advanced EDR and Mobile Threat Defense, we deliver proactive, real-time security for desktops, laptops, servers, and mobile devices—detecting, preventing, and neutralizing cyber threats before they can disrupt your business.",
     features: [
       "Advanced endpoint protection (EDR/XDR)",
       "Mobile device management (MDM)",
@@ -79,8 +82,9 @@ export const SERVICES: Service[] = [
     title: "Consulting & Compliance",
     shortTitle: "Security Consulting & Compliance Advisory",
     icon: FileCheck,
+    image: "/assets/service-consulting.png",
     description:
-      "Expert consulting services to help you navigate complex security requirements and achieve regulatory compliance. Strategic guidance for building and maintaining a robust security posture.",
+      "Expert consulting to help businesses navigate cybersecurity risks and regulatory challenges. Our team ensures your organization meets compliance standards while strengthening your security posture.",
     features: [
       "ISO 27001 compliance consulting",
       "PCI DSS readiness and certification",
@@ -106,8 +110,9 @@ export const SERVICES: Service[] = [
     title: "Managed Security Services (MSSP)",
     shortTitle: "24/7 Managed Security Operations",
     icon: Server,
+    image: "/assets/service-mssp.png",
     description:
-      "Round-the-clock security monitoring and management services. Our Security Operations Center (SOC) provides continuous protection, threat detection, and incident response for your organization.",
+      "Our Managed Security Services provide continuous monitoring, proactive threat detection, and rapid incident response to keep your business secure 24/7.",
     features: [
       "24/7 security monitoring (SOC)",
       "Security incident & event management (SIEM)",
@@ -133,8 +138,9 @@ export const SERVICES: Service[] = [
     title: "Technical Security & Infrastructure Protection",
     shortTitle: "Infrastructure Security Solutions",
     icon: Lock,
+    image: "/assets/service-infrastructure.png",
     description:
-      "Advanced technical security solutions to protect your IT infrastructure from evolving threats. From firewalls to intrusion detection, we secure your critical systems and networks.",
+      "Titan Shield strengthens your technology ecosystem with advanced security solutions.",
     features: [
       "Next-generation firewall (NGFW) deployment",
       "Intrusion detection and prevention (IDS/IPS)",
@@ -160,8 +166,9 @@ export const SERVICES: Service[] = [
     title: "Cybersecurity Training & Awareness",
     shortTitle: "Security Awareness Training Programs",
     icon: GraduationCap,
+    image: "/assets/service-training.png",
     description:
-      "Comprehensive security awareness training and education programs to build a security-conscious culture. Empower your team to become your first line of defense against cyber threats.",
+      "Empower your team with the skills and knowledge to protect your organization from cyber threats.",
     features: [
       "Security awareness training programs",
       "Phishing simulation campaigns",

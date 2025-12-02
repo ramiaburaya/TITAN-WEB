@@ -1,64 +1,114 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { Service } from "@/config/services";
 import { cn } from "@/lib/cn";
 
 interface ServiceCardProps {
   service: Service;
+  featured?: boolean; // Mark the middle card
 }
 
-export function ServiceCard({ service }: ServiceCardProps) {
+export function ServiceCard({ service, featured = false }: ServiceCardProps) {
   const Icon = service.icon;
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [hasShaken, setHasShaken] = useState(false);
+
+  useEffect(() => {
+    if (!featured || hasShaken) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setHasShaken(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [featured, hasShaken]);
 
   return (
     <Link
       href={`/services/${service.slug}`}
       className="group block h-full"
     >
-      <div className="h-full p-8 rounded-lg bg-brand-dark-light border border-brand-dark-light hover:border-brand-purple transition-all duration-300 hover:shadow-xl hover:shadow-brand-purple/10">
-        {/* Icon */}
-        <div
-          className={cn(
-            "inline-flex items-center justify-center w-16 h-16 rounded-lg mb-6 transition-all",
-            "bg-gradient-to-br",
-            service.color
-          )}
-        >
-          <Icon className="h-8 w-8 text-white" />
+      <div
+        ref={cardRef}
+        className={cn(
+          "relative h-full min-h-[320px] flex flex-col rounded-2xl bg-[#1a1520]/80 backdrop-blur-sm border border-gray-800/30 p-6 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-600/30 hover:border-purple-500/50 hover:bg-[#201828]/90",
+          featured && !hasShaken && "animate-[shake_3s_ease-in-out]"
+        )}
+      >
+        {/* Liquid Drops SVG - only on featured card */}
+        {featured && (
+          <div className="absolute top-0 left-0 right-0 w-full h-10 pointer-events-none z-20">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="100%"
+              viewBox="0 0 283.5 27.8"
+              preserveAspectRatio="xMidYMax slice"
+              className="w-full h-full"
+              style={{ transform: 'translateY(-5%)' }}
+            >
+              <path
+                fill="#a855f7"
+                d="M0 0v1.4c.6.7 1.1 1.4 1.4 2 2 3.8 2.2 6.6 1.8 10.8-.3 3.3-2.4 9.4 0 12.3 1.7 2 3.7 1.4 4.6-.9 1.4-3.8-.7-8.2-.6-12 .1-3.7 3.2-5.5 6.9-4.9 4 .6 4.8 4 4.9 7.4.1 1.8-1.1 7 0 8.5.6.8 1.6 1.2 2.4.5 1.4-1.1.1-5.4.1-6.9.1-3.7.3-8.6 4.1-10.5 5-2.5 6.2 1.6 5.4 5.6-.4 1.7-1 9.2 2.9 6.3 1.5-1.1.7-3.5.5-4.9-.4-2.4-.4-4.3 1-6.5.9-1.4 2.4-3.1 4.2-3 2.4.1 2.7 2.2 4 3.7 1.5 1.8 1.8 2.2 3 .1 1.1-1.9 1.2-2.8 3.6-3.3 1.3-.3 4.8-1.4 5.9-.5 1.5 1.1.6 2.8.4 4.3-.2 1.1-.6 4 1.8 3.4 1.7-.4-.3-4.1.6-5.6 1.3-2.2 5.8-1.4 7 .5 1.3 2.1.5 5.8.1 8.1s-1.2 5-.6 7.4c1.3 5.1 4.4.9 4.3-2.4-.1-4.4-2-8.8-.5-13 .9-2.4 4.6-6.6 7.7-4.5 2.7 1.8.5 7.8.2 10.3-.2 1.7-.8 4.6.2 6.2.9 1.4 2 1.5 2.6-.3.5-1.5-.9-4.5-1-6.1-.2-1.7-.4-3.7.2-5.4 1.8-5.6 3.5 2.4 6.3.6 1.4-.9 4.3-9.4 6.1-3.1.6 2.2-1.3 7.8.7 8.9 4.2 2.3 1.5-7.1 2.2-8 3.1-4 4.7 3.8 6.1 4.1 3.1.7 2.8-7.9 8.1-4.5 1.7 1.1 2.9 3.3 3.2 5.2.4 2.2-1 4.5-.6 6.6 1 4.3 4.4 1.5 4.4-1.7 0-2.7-3-8.3 1.4-9.1 4.4-.9 7.3 3.5 7.8 6.9.3 2-1.5 10.9 1.3 11.3 4.1.6-3.2-15.7 4.8-15.8 4.7-.1 2.8 4.1 3.9 6.6 1 2.4 2.1 1 2.3-.8.3-1.9-.9-3.2 1.3-4.3 5.9-2.9 5.9 5.4 5.5 8.5-.3 2-1.7 8.4 2 8.1 6.9-.5-2.8-16.9 4.8-18.7 4.7-1.2 6.1 3.6 6.3 7.1.1 1.7-1.2 8.1.6 9.1 3.5 2 1.9-7 2-8.4.2-4 1.2-9.6 6.4-9.8 4.7-.2 3.2 4.6 2.7 7.5-.4 2.2 1.3 8.6 3.8 4.4 1.1-1.9-.3-4.1-.3-6 0-1.7.4-3.2 1.3-4.6 1-1.6 2.9-3.5 5.1-2.9 2.5.6 2.3 4.1 4.1 4.9 1.9.8 1.6-.9 2.3-2.1 1.2-2.1 2.1-2.1 4.4-2.4 1.4-.2 3.6-1.5 4.9-.5 2.3 1.7-.7 4.4.1 6.5.6 1.5 2.1 1.7 2.8.3.7-1.4-1.1-3.4-.3-4.8 1.4-2.5 6.2-1.2 7.2 1 2.3 4.8-3.3 12-.2 16.3 3 4.1 3.9-2.8 3.8-4.8-.4-4.3-2.1-8.9 0-13.1 1.3-2.5 5.9-5.7 7.9-2.4 2 3.2-1.3 9.8-.8 13.4.5 4.4 3.5 3.3 2.7-.8-.4-1.9-2.4-10 .6-11.1 3.7-1.4 2.8 7.2 6.5.4 2.2-4.1 4.9-3.1 5.2 1.2.1 1.5-.6 3.1-.4 4.6.2 1.9 1.8 3.7 3.3 1.3 1-1.6-2.6-10.4 2.9-7.3 2.6 1.5 1.6 6.5 4.8 2.7 1.3-1.5 1.7-3.6 4-3.7 2.2-.1 4 2.3 4.8 4.1 1.3 2.9-1.5 8.4.9 10.3 4.2 3.3 3-5.5 2.7-6.9-.6-3.9 1-7.2 5.5-5 4.1 2.1 4.3 7.7 4.1 11.6 0 .8-.6 9.5 2.5 5.2 1.2-1.7-.1-7.7.1-9.6.3-2.9 1.2-5.5 4.3-6.2 4.5-1 7.7 1.5 7.4 5.8-.2 3.5-1.8 7.7-.5 11.1 1 2.7 3.6 2.8 5 .2 1.6-3.1 0-8.3-.4-11.6-.4-4.2-.2-7 1.8-10.8 0 0-.1.1-.1.2-.2.4-.3.7-.4.8v.1c-.1.2-.1.2 0 0v-.1l.4-.8c0-.1.1-.1.1-.2.2-.4.5-.8.8-1.2V0H0zM282.7 3.4z"
+              />
+            </svg>
+          </div>
+        )}
+
+        {/* Top Icon - using service image */}
+        <div className="relative w-12 h-12 mb-4 transition-all duration-300 group-hover:scale-110">
+          <Image
+            src={service.image}
+            alt=""
+            width={48}
+            height={48}
+            className="w-full h-full object-contain"
+          />
         </div>
 
         {/* Title */}
-        <h3 className="text-2xl font-bold mb-4 group-hover:text-brand-purple transition-colors">
+        <h3 className="text-lg font-bold mb-4 text-white group-hover:text-[#a855f7] transition-colors duration-300 leading-snug">
           {service.title}
         </h3>
 
-        {/* Description */}
-        <p className="text-gray-400 mb-6 leading-relaxed line-clamp-3">
+        {/* Horizontal separator - vanishes to the right */}
+        <div className="w-full h-[1px] bg-gradient-to-r from-gray-600 via-gray-700 to-transparent mb-4" />
+
+        {/* Short Description */}
+        <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
           {service.description}
         </p>
 
-        {/* Features preview */}
-        <ul className="space-y-2 mb-6">
-          {service.features.slice(0, 3).map((feature, index) => (
-            <li
-              key={index}
-              className="text-sm text-gray-300 flex items-start gap-2"
-            >
-              <span className="text-brand-purple mt-1">•</span>
-              <span>{feature}</span>
-            </li>
-          ))}
-          {service.features.length > 3 && (
-            <li className="text-sm text-gray-500 italic">
-              +{service.features.length - 3} more features
-            </li>
-          )}
-        </ul>
+        {/* Decorative Image at Bottom Right - 80% hidden, slides up on hover */}
+        <div className="absolute -bottom-20 right-0 w-40 h-40 opacity-100 group-hover:opacity-40 group-hover:-bottom-10 transition-all duration-300">
+          <Image
+            src={service.image}
+            alt=""
+            width={160}
+            height={160}
+            className="w-full h-full object-contain"
+          />
+        </div>
 
-        {/* CTA */}
-        <div className="flex items-center gap-2 text-brand-purple font-semibold group-hover:gap-3 transition-all">
-          <span>Learn More</span>
-          <ArrowRight className="h-5 w-5" />
+        {/* Read More CTA */}
+        <div className="relative z-10 flex items-center gap-2 text-white font-medium text-sm hover:text-[#a855f7] group-hover:gap-3 transition-all duration-300">
+          <ArrowRight className="h-4 w-4 text-[#a855f7]" />
+          <span>Read More</span>
         </div>
       </div>
     </Link>

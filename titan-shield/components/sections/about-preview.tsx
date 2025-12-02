@@ -1,77 +1,158 @@
+"use client";
+
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowRight, Shield } from "lucide-react";
+import Image from "next/image";
+import { Check } from "lucide-react";
 
 export function AboutPreview() {
   const highlights = [
-    "ISO 27001 Certified Security Experts",
-    "Comprehensive Threat Intelligence",
-    "24/7 Security Operations Center",
-    "Tailored Solutions for Your Business",
+    "Cyber Defense Innovation",
+    "Protecting Your Digital World",
+    "Secure IT Solutions",
   ];
 
   return (
-    <section className="py-20 bg-brand-dark">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left column - Text content */}
-          <div>
-            <p className="text-brand-purple text-sm font-semibold uppercase tracking-wide mb-2">
-              ABOUT TITAN SHIELD
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Your Trusted Partner in{" "}
-              <span className="text-brand-purple">Cybersecurity</span>
-            </h2>
-            <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              Titan Shield is Palestine's leading cybersecurity firm, dedicated
-              to protecting businesses from evolving digital threats. With over
-              15 years of experience, we combine local expertise with global
-              best practices.
-            </p>
-            <p className="text-gray-400 mb-8 leading-relaxed">
-              Our team of certified security professionals delivers
-              comprehensive solutions—from penetration testing to managed
-              security services—ensuring your organization stays secure,
-              compliant, and resilient against cyber attacks.
-            </p>
+    <section className="bg-[#141214] py-16 md:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
+        {/* Mobile: stack everything */}
+        <div className="lg:hidden flex flex-col gap-8">
+          {/* Label */}
+          <div className="flex items-center gap-4">
+            <div className="h-[2px] w-20 bg-linear-to-r from-transparent to-[#9333ea]" />
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/70">
+              About Titan
+            </span>
+          </div>
 
-            <ul className="space-y-3 mb-8">
-              {highlights.map((highlight, index) => (
-                <li key={index} className="flex items-center gap-3 text-gray-300">
-                  <CheckCircle className="h-5 w-5 text-brand-purple flex-shrink-0" />
-                  <span>{highlight}</span>
+          {/* Heading + paragraph */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+              The Titans of Cybersecurity
+            </h2>
+            <p className="text-sm md:text-base text-white/70 leading-relaxed">
+              Premier cybersecurity firm committed to safeguarding businesses from ever-evolving digital
+              threats. We provide comprehensive security solutions tailored to protect your organization&apos;s
+              most valuable assets. Whether you&apos;re a startup, enterprise, or multinational corporation, we
+              help you stay ahead of cyber risks, ensuring resilience, compliance, and uninterrupted growth.
+            </p>
+          </div>
+
+          {/* Feature card */}
+          <div className="bg-[#1a1520] rounded-3xl px-6 py-8">
+            <Image
+              src="/assets/titan-warrior-graphic.png"
+              alt="Cybersecurity illustration"
+              width={400}
+              height={300}
+              className="mb-6 w-full rounded-2xl object-cover"
+            />
+
+            <ul className="space-y-3 text-sm text-white/80 mb-6">
+              {highlights.map((item) => (
+                <li key={item} className="flex items-center gap-3">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#9333ea] text-[#9333ea]">
+                    <Check className="w-3 h-3" />
+                  </span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
 
-            <Button asChild className="group">
-              <Link href="/about">
-                Learn More About Us
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+            <Link
+              href="/about"
+              className="inline-flex w-full items-center justify-center rounded-full bg-[#9333ea] px-6 py-3 text-sm font-medium text-white shadow-[0_0_30px_rgba(147,51,234,0.6)] hover:shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:scale-95 transition-all duration-300"
+            >
+              More About Us
+            </Link>
           </div>
 
-          {/* Right column - Visual element */}
-          <div className="relative">
-            <div className="relative rounded-lg overflow-hidden bg-gradient-to-br from-brand-purple/20 to-pink-600/20 p-8 border border-brand-dark-light">
-              {/* Placeholder for image or graphic */}
-              <div className="aspect-square bg-brand-dark-light rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Shield className="h-24 w-24 text-brand-purple mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold mb-2">
-                    Security in Every Byte
-                  </h3>
-                  <p className="text-gray-400">
-                    Protecting what matters most
-                  </p>
-                </div>
+          {/* Bottom brand text */}
+          <div className="mt-4">
+            <p className="text-xl font-semibold text-white">Titan Shield</p>
+            <p className="text-xl text-[#9333ea]">The Titans</p>
+            <p className="text-xl text-white/60">Cyber Security</p>
+          </div>
+        </div>
+
+        {/* Desktop: 2-column layout */}
+        <div className="hidden lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-12 xl:gap-16">
+          {/* LEFT COLUMN - narrow sidebar */}
+          <div className="flex flex-col justify-between min-h-[600px]">
+            {/* Top: ABOUT TITAN label */}
+            <div className="flex items-center gap-4">
+              <div className="h-[2px] w-20 bg-linear-to-r from-transparent to-[#9333ea]" />
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/70">
+                About Titan
+              </span>
+            </div>
+
+            {/* Bottom: Brand text cluster */}
+            <div>
+              <p className="text-2xl font-semibold text-white mb-1">Titan Shield</p>
+              <p className="text-2xl text-[#9333ea] mb-1">The Titans</p>
+              <p className="text-2xl text-white/60">Cyber Security</p>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN - main content */}
+          <div>
+            {/* Top: Heading + paragraph */}
+            <div className="mb-10">
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 leading-tight">
+                The Titans of Cybersecurity
+              </h2>
+              <p className="max-w-[700px] text-base text-white/70 leading-relaxed">
+                Premier cybersecurity firm committed to safeguarding businesses from ever-evolving digital
+                threats. We provide comprehensive security solutions tailored to protect your organization&apos;s
+                most valuable assets. Whether you&apos;re a startup, enterprise, or multinational corporation, we
+                help you stay ahead of cyber risks, ensuring resilience, compliance, and uninterrupted growth.
+              </p>
+            </div>
+
+            {/* Middle: SHIELD + Titan figure | Feature card */}
+            <div className="grid grid-cols-2 gap-10 xl:gap-16 mt-10">
+              {/* Left: SHIELD + Titan */}
+              <div className="flex items-start justify-center">
+                <Image
+                  src="/assets/titan-warrior-graphic.png"
+                  alt="Titan Shield Logo"
+                  width={480}
+                  height={480}
+                  className="max-w-full w-full h-auto"
+                  priority
+                />
               </div>
 
-              {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-purple/20 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-pink-600/20 rounded-full blur-3xl" />
+              {/* Right: Feature card with superhero image */}
+              <div className="flex flex-col w-full">
+                <div className="bg-[#1a1520] rounded-3xl mb-6">
+                  <Image
+                    src="/assets/about-superhero.webp"
+                    alt="Cybersecurity illustration"
+                    width={400}
+                    height={300}
+                    className="w-full rounded-2xl object-cover"
+                  />
+                </div>
+
+                <ul className="space-y-3 text-base text-white/80 mb-8">
+                  {highlights.map((item) => (
+                    <li key={item} className="flex items-center gap-3">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#9333ea] text-[#9333ea]">
+                        <Check className="w-3 h-3" />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href="/about"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-[#9333ea] px-6 py-3 text-sm font-medium text-white shadow-[0_0_30px_rgba(147,51,234,0.6)] hover:shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:scale-95 transition-all duration-300"
+                >
+                  More About Us
+                </Link>
+              </div>
             </div>
           </div>
         </div>
