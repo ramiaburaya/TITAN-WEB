@@ -1,73 +1,78 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Home } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <section className="relative min-h-screen flex justify-center items-center text-center overflow-hidden text-white px-8">
-      {/* Background Layer - Titan silhouette with blur */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="/assets/titan-warrior-graphic.png"
-          alt="Background"
-          fill
-          className="object-cover opacity-10 blur-sm"
-          priority
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0c0c0c] via-[#1a001d] to-[#0c0c0c]" />
-        {/* Purple radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_30%,rgba(168,85,255,0.2),transparent_70%)]" />
-      </div>
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Layer 1: Background Image - same as hero */}
+      <Image
+        src="/assets/herosection_bg.png"
+        alt="Background"
+        fill
+        className="object-cover object-center brightness-50"
+        priority
+      />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-2xl mx-auto">
-        {/* Large 404 with gradient and floating animation */}
-        <h1 className="text-[clamp(6rem,16vw,10rem)] font-bold leading-none mb-6 bg-gradient-to-r from-[#a855ff] to-[#ec4899] bg-clip-text text-transparent animate-[float404_6s_ease-in-out_infinite]">
+      {/* Layer 2: Purple Gradient Overlay - same as hero */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#7a1cff]/55 via-[#a44bff]/25 to-transparent pointer-events-none" />
+
+      {/* Content Container */}
+      <div className="relative z-10 text-center max-w-[600px] w-full px-8">
+        {/* Big 404 heading with gradient */}
+        <h1 className="text-[clamp(5rem,15vw,8rem)] font-extrabold bg-gradient-to-r from-[#a855f7] to-[#ec4899] bg-clip-text text-transparent leading-none mb-4">
           404
         </h1>
 
-        {/* Page Not Found heading */}
-        <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-semibold mb-4">
+        {/* Decorative horizontal gradient line */}
+        <div className="flex justify-center mb-6">
+          <div className="w-[240px] h-[2px] bg-gradient-to-r from-transparent via-white/70 to-transparent" />
+        </div>
+
+        {/* Title */}
+        <h2 className="text-[clamp(1.8rem,4vw,2.4rem)] font-semibold text-white mb-4">
           Page Not Found
         </h2>
 
-        {/* Description */}
-        <p className="text-gray-300 max-w-[480px] mx-auto mb-8 text-lg leading-relaxed">
-          The page you're looking for doesn't exist or has been moved.
+        {/* Description paragraph */}
+        <p className="max-w-[420px] mx-auto text-center leading-relaxed text-white/80 mb-8 text-base md:text-lg">
+          The page you&apos;re looking for doesn&apos;t exist or may have been moved.
         </p>
 
-        {/* Return Home Button with glow */}
+        {/* Primary button */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-[#a855ff] to-[#ec4899] shadow-[0_0_25px_rgba(168,85,255,0.4)] hover:shadow-[0_0_45px_rgba(168,85,255,0.7)] hover:-translate-y-0.5 transition-all duration-300"
+          className="inline-block px-10 py-3.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#ec4899] text-white font-semibold transition-all duration-300 hover:scale-105 shadow-[0_4px_15px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_25px_rgba(168,85,247,0.5)]"
         >
-          <Home className="w-5 h-5" />
           Return Home
         </Link>
 
-        {/* Quick links */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <div className="flex flex-wrap gap-8 justify-center text-sm">
-            <Link
-              href="/services"
-              className="text-gray-400 hover:text-[#a855f7] transition-colors duration-200"
-            >
-              Services
-            </Link>
-            <Link
-              href="/about"
-              className="text-gray-400 hover:text-[#a855f7] transition-colors duration-200"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/contact"
-              className="text-gray-400 hover:text-[#a855f7] transition-colors duration-200"
-            >
-              Contact
-            </Link>
-          </div>
+        {/* Decorative horizontal gradient line */}
+        <div className="flex justify-center mt-10 mb-6">
+          <div className="w-[200px] h-[2px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+        </div>
+
+        {/* Secondary links */}
+        <div className="flex gap-6 justify-center items-center text-sm">
+          <Link
+            href="/services"
+            className="text-white/70 hover:text-white transition-colors duration-200"
+          >
+            Services
+          </Link>
+          <span className="text-white/40 select-none">·</span>
+          <Link
+            href="/about"
+            className="text-white/70 hover:text-white transition-colors duration-200"
+          >
+            About Us
+          </Link>
+          <span className="text-white/40 select-none">·</span>
+          <Link
+            href="/contact"
+            className="text-white/70 hover:text-white transition-colors duration-200"
+          >
+            Contact
+          </Link>
         </div>
       </div>
     </section>
