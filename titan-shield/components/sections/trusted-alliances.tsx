@@ -90,9 +90,9 @@ export function TrustedAlliances() {
             ))}
           </div>
 
-          {/* Enhanced gradient overlays */}
-          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#141214] via-[#141214]/80 to-transparent pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-[#141214] via-[#141214]/80 to-transparent pointer-events-none" />
+          {/* Enhanced gradient overlays - responsive widths */}
+          <div className="absolute inset-y-0 left-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-r from-[#141214] via-[#141214]/80 to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-l from-[#141214] via-[#141214]/80 to-transparent pointer-events-none" />
         </div>
 
         {/* Dots indicator */}

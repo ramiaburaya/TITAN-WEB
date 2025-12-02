@@ -15,16 +15,16 @@ interface ServiceCardProps {
 export function ServiceCard({ service, featured = false }: ServiceCardProps) {
   const Icon = service.icon;
   const cardRef = useRef<HTMLDivElement>(null);
-  const [hasShaken, setHasShaken] = useState(false);
+  const [shouldShake, setShouldShake] = useState(false);
 
   useEffect(() => {
-    if (!featured || hasShaken) return;
+    if (!featured) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setHasShaken(true);
+          if (entry.isIntersecting && !shouldShake) {
+            setShouldShake(true);
             observer.disconnect();
           }
         });
@@ -37,7 +37,7 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
     }
 
     return () => observer.disconnect();
-  }, [featured, hasShaken]);
+  }, [featured, shouldShake]);
 
   return (
     <Link
@@ -48,7 +48,7 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
         ref={cardRef}
         className={cn(
           "relative h-full min-h-[320px] flex flex-col rounded-2xl bg-[#1a1520]/80 backdrop-blur-sm border border-gray-800/30 p-6 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-600/30 hover:border-purple-500/50 hover:bg-[#201828]/90",
-          featured && !hasShaken && "animate-[shake_3s_ease-in-out]"
+          featured && shouldShake && "animate-[shake-rotate_2s_ease-in-out]"
         )}
       >
         {/* Liquid Drops SVG - only on featured card */}

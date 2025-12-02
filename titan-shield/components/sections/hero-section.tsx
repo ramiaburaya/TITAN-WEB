@@ -80,7 +80,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#7a1cff]/55 via-[#a44bff]/25 to-transparent pointer-events-none" />
 
       {/* Layer 4: Left Side Vertical Social Icons (Foreground) */}
-      <div className="absolute left-8 md:left-16 lg:left-24 top-48 md:top-53 flex flex-col gap-6 text-white/70 z-20">
+      <div className="absolute left-4 md:left-8 lg:left-12 xl:left-16 top-48 md:top-52 flex flex-col gap-6 text-white/70 z-20">
         <a
           href={SITE_CONFIG.links.facebook}
           target="_blank"
@@ -102,15 +102,15 @@ export function HeroSection() {
       </div>
 
       {/* Vertical Gradient Line Below Social Icons */}
-      <div className="absolute left-8 md:left-16 lg:left-27 top-[250px] md:top-[300px] flex flex-col z-20">
+      <div className="absolute left-[18px] md:left-[34px] lg:left-[60px] xl:left-[76px] top-[280px] md:top-[300px] flex flex-col z-20">
         <div className="w-[2px] h-[120px] bg-gradient-to-b from-white/70 via-white/40 to-transparent" />
       </div>
 
       {/* Layer 5: Main Content (Foreground) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 md:px-16 lg:px-24 mt-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-16 md:px-28 lg:px-32 xl:px-36 mt-8">
         <div className="max-w-5xl">
           {/* Main Heading - Two lines: "We Protect Your" then typing text */}
-          <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+          <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 animate-[fade-in-left_1s_ease-out]">
             We Protect Your
             <br />
             <span ref={typingRef} className="inline-block">
@@ -120,12 +120,12 @@ export function HeroSection() {
           </h1>
 
           {/* Horizontal Gradient Line */}
-          <div className="mt-6 mb-8">
+          <div className="mt-6 mb-8 animate-[fade-in-left_1s_ease-out_0.3s_backwards]">
             <div className="w-[240px] h-[2px] bg-gradient-to-r from-white/70 via-white/40 to-transparent" />
           </div>
 
           {/* Paragraph with Vertical Gradient Line */}
-          <div className="flex gap-4 mt-10 max-w-3xl">
+          <div className="flex gap-4 mt-10 max-w-3xl animate-[fade-in-right_1s_ease-out_0.5s_backwards]">
             <p className="text-white/80 text-base md:text-lg leading-relaxed flex-1">
               We protect businesses from evolving cyber threats with cutting-edge solutions and expert strategies.
             </p>

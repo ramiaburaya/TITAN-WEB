@@ -18,7 +18,7 @@ export function AboutPreview() {
         <div className="lg:hidden flex flex-col gap-8">
           {/* Label */}
           <div className="flex items-center gap-4">
-            <div className="h-[2px] w-20 bg-linear-to-r from-transparent to-[#9333ea]" />
+            <div className="h-[2px] w-20 bg-gradient-to-r from-transparent to-[#9333ea]" />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/70">
               About Titan
             </span>
@@ -80,7 +80,7 @@ export function AboutPreview() {
           <div className="flex flex-col justify-between min-h-[600px]">
             {/* Top: ABOUT TITAN label */}
             <div className="flex items-center gap-4">
-              <div className="h-[2px] w-20 bg-linear-to-r from-transparent to-[#9333ea]" />
+              <div className="h-[2px] w-20 bg-gradient-to-r from-transparent to-[#9333ea]" />
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/70">
                 About Titan
               </span>

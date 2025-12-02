@@ -140,6 +140,18 @@
   }
 }
 
+@keyframes shake-rotate {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: rotate(-2deg);
+  }
+  20%, 40%, 60%, 80% {
+    transform: rotate(2deg);
+  }
+}
+
 @keyframes bounce-shield {
   0%, 100% {
     transform: translateY(0);
@@ -186,5 +198,27 @@
   /* Pause before repeat */
   60%, 100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
