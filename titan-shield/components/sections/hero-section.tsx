@@ -62,6 +62,8 @@ export function HeroSection() {
         fill
         className="object-cover object-center brightness-50"
         priority
+        quality={75}
+        fetchPriority="high"
       />
 
       {/* Layer 2: Video - FULL WIDTH background */}

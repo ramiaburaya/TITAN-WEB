@@ -27,8 +27,8 @@ export function NewsletterSection() {
           alt="Titan Shield newsletter background with cybersecurity branding"
           fill
           className="object-cover"
-          priority
-          quality={90}
+          quality={75}
+          loading="lazy"
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/50" />

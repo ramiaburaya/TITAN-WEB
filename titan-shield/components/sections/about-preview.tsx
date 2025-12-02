@@ -45,6 +45,7 @@ export function AboutPreview() {
               width={400}
               height={300}
               className="mb-6 w-full rounded-2xl object-cover"
+              loading="lazy"
             />
 
             <ul className="space-y-3 text-sm text-white/80 mb-6">
