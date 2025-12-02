@@ -64,22 +64,24 @@ export function TrustedAlliances() {
             {getVisibleLogos().map((logo, index) => (
               <div
                 key={`${logo.alt}-${index}`}
-                className={`flex flex-col items-center justify-center transition-all duration-700 ease-out ${
+                className={`flex flex-col items-center justify-center transition-all duration-700 ease-out w-40 ${
                   logo.position === 'center'
                     ? 'opacity-100 scale-100 z-10 blur-0'
-                    : 'opacity-25 scale-90 z-0 blur-sm'
+                    : 'opacity-25 scale-90 z-0 blur-[2px]'
                 }`}
                 style={{
                   transitionTimingFunction: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
                 }}
               >
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={logo.width}
-                  height={logo.height}
-                  className="h-14 md:h-20 w-auto object-contain"
-                />
+                <div className="flex items-center justify-center w-full h-16 md:h-24">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={logo.width}
+                    height={logo.height}
+                    className="max-h-full w-auto object-contain mx-auto"
+                  />
+                </div>
                 {/* Decorative line under center logo */}
                 {logo.position === 'center' && (
                   <div className="mt-4 h-[1px] w-20 bg-gradient-to-r from-transparent via-white/40 to-transparent" />

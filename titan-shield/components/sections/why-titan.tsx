@@ -83,7 +83,7 @@ export function WhyTitan() {
             {/* Eyebrow + Title */}
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-[2px] w-12 bg-purple-600" />
+                <div className="h-[2px] w-12 bg-gradient-to-r from-purple-600 to-transparent" />
                 <span className="text-gray-400 text-xs uppercase tracking-[0.2em]">WHY</span>
                 <span className="text-purple-500 text-xs uppercase tracking-[0.2em] font-semibold inline-block animate-[bounce-shield_6s_ease-in-out_infinite]">TITAN</span>
               </div>
