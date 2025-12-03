@@ -15,7 +15,12 @@
       "Bash(npm run dev:*)",
       "Bash(dir /B \"c:\\Users\\obada\\TITAN-WEB\\titan-shield\\public\\assets\")",
       "Bash(findstr:*)",
-      "Bash(dir \"C:\\Users\\obada\\TITAN-WEB\\assets\" /B)"
+      "Bash(dir \"C:\\Users\\obada\\TITAN-WEB\\assets\" /B)",
+      "Bash(dir:*)",
+      "Bash(nul)",
+      "Bash(copy \"assets\\services_page\\servies.jpg\" \"titan-shield\\public\\assets\\services_page\\servies.jpg\")",
+      "Bash(mkdir:*)",
+      "Bash(del nul)"
     ],
     "deny": [],
     "ask": []

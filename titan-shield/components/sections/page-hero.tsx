@@ -19,7 +19,7 @@ export function PageHero({
   backgroundAlt = "Page background",
 }: PageHeroProps) {
   return (
-    <section className="relative w-full min-h-[400px] md:min-h-[500px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-[300px] md:min-h-[350px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <Image
         src={backgroundImage}
