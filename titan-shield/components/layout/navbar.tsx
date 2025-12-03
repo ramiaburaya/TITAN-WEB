@@ -71,7 +71,7 @@ export function Navbar() {
                                 <Link
                                   key={service.href}
                                   href={service.href}
-                                  className="px-4 py-3 rounded-md text-sm text-gray-300 hover:bg-brand-dark-light hover:text-brand-purple transition-all"
+                                  className="px-4 py-3 rounded-md text-sm text-gray-300 hover:text-brand-purple transition-all"
                                 >
                                   {service.label}
                                 </Link>

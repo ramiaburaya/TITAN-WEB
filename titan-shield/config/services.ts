@@ -13,9 +13,15 @@ export interface Service {
   shortTitle: string;
   icon: LucideIcon;
   image: string; // decorative image for card
+  heroImage: string; // hero background image
+  ctaImage: string; // CTA card image
   description: string;
   features: string[];
   benefits: string[];
+  overview?: {
+    title: string;
+    description: string;
+  };
   color: string;
 }
 
@@ -27,17 +33,19 @@ export const SERVICES: Service[] = [
     shortTitle: "Offensive Security & Penetration Testing",
     icon: Shield,
     image: "/assets/service-offsec.png",
+    heroImage: "/assets/services_page/hacker-arriving-secret-base-with-laptop-ready-start-programming-viruses-scaled.webp",
+    ctaImage: "/assets/services_page/criminal-hacking-system-unsuccessfully-1024x683.webp",
     description:
       "Simulating real-world cyberattacks, our ethical hacking services expose vulnerabilities before hackers can exploit them.",
     features: [
-      "Advanced red team operations",
-      "Web application penetration testing",
-      "Network security assessment",
-      "Social engineering testing",
-      "Wireless security audits",
-      "Mobile application testing",
-      "API security testing",
-      "Cloud infrastructure assessment",
+      "Web, mobile, and API penetration testing",
+      "Network and infrastructure security testing (internal & external)",
+      "Network and infrastructure security testing (internal & external)",
+      "Wireless & IoT security testing",
+      "Red Team exercises to test incident response readiness",
+      "Physical security penetration testing",
+      "Cloud security assessments (AWS, Azure, GCP)",
+      "Phishing, vishing, and onsite social engineering assessments",
     ],
     benefits: [
       "Identify vulnerabilities proactively",
@@ -46,6 +54,10 @@ export const SERVICES: Service[] = [
       "Remediation guidance and support",
       "Compliance validation",
     ],
+    overview: {
+      title: "Overview Benefits of OffSec & Pen-Testing",
+      description: "Offensive security and penetration testing are essential practices for identifying vulnerabilities within systems before malicious actors can exploit them. By simulating real-world attacks, penetration testers proactively identify weak points in an organization's infrastructure, applications, and networks. This approach provides valuable insights into potential threats and strengthens overall security posture.",
+    },
     color: "from-purple-600 to-pink-600",
   },
   {
@@ -55,6 +67,8 @@ export const SERVICES: Service[] = [
     shortTitle: "Endpoint & Mobile Device Protection",
     icon: Smartphone,
     image: "/assets/service-endpoint.png",
+    heroImage: "/assets/services_page/servies.jpg",
+    ctaImage: "/assets/services_page/criminal-hacking-system-unsuccessfully-1024x683.webp",
     description:
       "Harnessing advanced EDR and Mobile Threat Defense, we deliver proactive, real-time security for desktops, laptops, servers, and mobile devices—detecting, preventing, and neutralizing cyber threats before they can disrupt your business.",
     features: [
@@ -83,6 +97,8 @@ export const SERVICES: Service[] = [
     shortTitle: "Security Consulting & Compliance Advisory",
     icon: FileCheck,
     image: "/assets/service-consulting.png",
+    heroImage: "/assets/services_page/servies.jpg",
+    ctaImage: "/assets/services_page/criminal-hacking-system-unsuccessfully-1024x683.webp",
     description:
       "Expert consulting to help businesses navigate cybersecurity risks and regulatory challenges. Our team ensures your organization meets compliance standards while strengthening your security posture.",
     features: [
@@ -111,6 +127,8 @@ export const SERVICES: Service[] = [
     shortTitle: "24/7 Managed Security Operations",
     icon: Server,
     image: "/assets/service-mssp.png",
+    heroImage: "/assets/services_page/servies.jpg",
+    ctaImage: "/assets/services_page/criminal-hacking-system-unsuccessfully-1024x683.webp",
     description:
       "Our Managed Security Services provide continuous monitoring, proactive threat detection, and rapid incident response to keep your business secure 24/7.",
     features: [
@@ -139,6 +157,8 @@ export const SERVICES: Service[] = [
     shortTitle: "Infrastructure Security Solutions",
     icon: Lock,
     image: "/assets/service-infrastructure.png",
+    heroImage: "/assets/services_page/servies.jpg",
+    ctaImage: "/assets/services_page/criminal-hacking-system-unsuccessfully-1024x683.webp",
     description:
       "Titan Shield strengthens your technology ecosystem with advanced security solutions.",
     features: [
@@ -167,6 +187,8 @@ export const SERVICES: Service[] = [
     shortTitle: "Security Awareness Training Programs",
     icon: GraduationCap,
     image: "/assets/service-training.png",
+    heroImage: "/assets/services_page/servies.jpg",
+    ctaImage: "/assets/services_page/criminal-hacking-system-unsuccessfully-1024x683.webp",
     description:
       "Empower your team with the skills and knowledge to protect your organization from cyber threats.",
     features: [

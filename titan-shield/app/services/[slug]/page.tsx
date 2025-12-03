@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 import { SERVICES, getServiceBySlug } from "@/config/services";
-import { ServiceHero } from "@/components/sections/service-hero";
-import { FeaturesList } from "@/components/sections/features-list";
-import { CTABox } from "@/components/cards/cta-box";
+import { PageHero } from "@/components/sections/page-hero";
+import { ServiceContent } from "@/components/sections/service-content";
 
 interface ServicePageProps {
   params: Promise<{
@@ -38,26 +37,18 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   return (
     <>
-      <ServiceHero service={service} />
+      <PageHero
+        title={service.title}
+        backgroundImage={service.heroImage}
+        backgroundAlt={service.title}
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: service.shortTitle },
+        ]}
+      />
 
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Main content */}
-          <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold mb-6">{service.shortTitle}</h2>
-            <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              {service.description}
-            </p>
-
-            <FeaturesList features={service.features} benefits={service.benefits} />
-          </div>
-
-          {/* Sidebar CTA */}
-          <div className="lg:col-span-1">
-            <CTABox />
-          </div>
-        </div>
-      </div>
+      <ServiceContent service={service} />
     </>
   );
 }
