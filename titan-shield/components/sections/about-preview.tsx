@@ -20,14 +20,14 @@ export function AboutPreview() {
           <div className="flex items-center gap-4">
             <div className="h-[2px] w-20 bg-gradient-to-r from-transparent to-[#9333ea]" />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/70">
-              About Titan
+              About TITAN
             </span>
           </div>
 
           {/* Heading + paragraph */}
           <div>
             <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
-              The Titans of Cybersecurity
+              The TITANS of Cybersecurity
             </h2>
             <p className="text-sm md:text-base text-white/70 leading-relaxed">
               Premier cybersecurity firm committed to safeguarding businesses from ever-evolving digital
@@ -70,7 +70,7 @@ export function AboutPreview() {
           {/* Bottom brand text */}
           <div className="mt-4">
             <p className="text-xl font-semibold text-white">Titan Shield</p>
-            <p className="text-xl text-[#9333ea]">The Titans</p>
+            <p className="text-xl text-[#9333ea]">The TITANS</p>
             <p className="text-xl text-white/60">Cyber Security</p>
           </div>
         </div>
@@ -83,14 +83,14 @@ export function AboutPreview() {
             <div className="flex items-center gap-4">
               <div className="h-[2px] w-20 bg-gradient-to-r from-transparent to-[#9333ea]" />
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/70">
-                About Titan
+                About TITAN
               </span>
             </div>
 
             {/* Bottom: Brand text cluster */}
             <div>
               <p className="text-2xl font-semibold text-white mb-1">Titan Shield</p>
-              <p className="text-2xl text-[#9333ea] mb-1">The Titans</p>
+              <p className="text-2xl text-[#9333ea] mb-1">The TITANS</p>
               <p className="text-2xl text-white/60">Cyber Security</p>
             </div>
           </div>
@@ -100,7 +100,7 @@ export function AboutPreview() {
             {/* Top: Heading + paragraph */}
             <div className="mb-10">
               <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 leading-tight">
-                The Titans of Cybersecurity
+                The TITANS of Cybersecurity
               </h2>
               <p className="max-w-[700px] text-base text-white/70 leading-relaxed">
                 Premier cybersecurity firm committed to safeguarding businesses from ever-evolving digital

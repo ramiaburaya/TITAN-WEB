@@ -11,7 +11,7 @@ export function HeroSection() {
   useEffect(() => {
     const phrases = [
       "Digital World",
-      "Systems With Titans Strength",
+      "Systems With TITANS Strength",
       "Data, Safeguard Your Success",
       "Privacy With Unbreakable Security",
     ];
