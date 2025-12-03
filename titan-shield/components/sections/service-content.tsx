@@ -64,7 +64,7 @@ export function ServiceContent({ service }: ServiceContentProps) {
           </div>
 
           {/* Right Column - CTA Card */}
-          <div className="lg:sticky lg:top-24 h-fit">
+          <div className="lg:sticky lg:top-32 h-fit">
             <div className="relative bg-[#1A1A1A] rounded-lg overflow-hidden border border-[#2A2A2A]">
               {/* CTA Image */}
               <div className="relative h-64 w-full">
