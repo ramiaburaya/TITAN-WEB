@@ -3,10 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle } from "lucide-react";
-import type { Service } from "@/config/services";
 
 interface ServiceContentProps {
-  service: Service;
+  service: {
+    shortTitle: string;
+    description: string;
+    features: string[];
+    ctaImage: string;
+    overview?: {
+      title: string;
+      description: string;
+    };
+  };
 }
 
 export function ServiceContent({ service }: ServiceContentProps) {

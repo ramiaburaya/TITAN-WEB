@@ -48,7 +48,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
         ]}
       />
 
-      <ServiceContent service={service} />
+      <ServiceContent
+        service={{
+          shortTitle: service.shortTitle,
+          description: service.description,
+          features: service.features,
+          ctaImage: service.ctaImage,
+          overview: service.overview,
+        }}
+      />
     </>
   );
 }
