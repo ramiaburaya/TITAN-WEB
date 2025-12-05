@@ -59,7 +59,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <EndpointTemplate
             service={{
               ...baseProps,
-              comparisonSection: templateData.comparisonSection,
+              additionalSections: templateData.additionalSections,
             }}
           />
         );

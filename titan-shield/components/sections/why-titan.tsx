@@ -94,7 +94,7 @@ export function WhyTitan() {
 
             {/* Progress Bars */}
             <div className="space-y-6">
-              <ProgressBar label="Trusted Defense" percentage={98} delay={200} />
+              <ProgressBar label="Trusted Defense" percentage={95} delay={200} />
               <ProgressBar label="Digital Shield" percentage={85} delay={400} />
               <ProgressBar label="Resilient Protection" percentage={90} delay={600} />
             </div>

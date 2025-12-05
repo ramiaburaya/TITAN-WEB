@@ -20,7 +20,20 @@
       "Bash(nul)",
       "Bash(copy \"assets\\services_page\\servies.jpg\" \"titan-shield\\public\\assets\\services_page\\servies.jpg\")",
       "Bash(mkdir:*)",
-      "Bash(del nul)"
+      "Bash(del nul)",
+      "Bash(ls:*)",
+      "Bash(npm audit:*)",
+      "Bash(timeout /t 3)",
+      "Bash(tasklist:*)",
+      "Bash(if exist \".next\\dev\\lock\" del \".next\\dev\\lock\")",
+      "Bash(taskkill /F /PID 67420)",
+      "Bash(taskkill //F //PID 67420)",
+      "Bash(npm uninstall:*)",
+      "Bash(git push)",
+      "Bash(del titan-shieldnul)",
+      "Bash(if exist \"nul\" del \"nul\")",
+      "Bash(if exist \"titan-shield\\nul\" del \"titan-shield\\nul\")",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []

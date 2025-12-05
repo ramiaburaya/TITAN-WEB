@@ -1,8 +1,10 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import type { DynamicSection } from "@/config/service-templates";
 
 interface EndpointTemplateProps {
   service: {
@@ -16,19 +18,36 @@ interface EndpointTemplateProps {
       title: string;
       description: string;
     };
-    comparisonSection?: {
-      title: string;
-      subtitle: string;
-      comparisons: Array<{
-        title: string;
-        description: string;
-        buttonText: string;
-      }>;
-    };
+    additionalSections?: DynamicSection[];
   };
 }
 
 export function EndpointTemplate({ service }: EndpointTemplateProps) {
+  const [carouselStates, setCarouselStates] = useState<Record<number, { currentIndex: number; isAutoPlaying: boolean }>>({});
+
+  const initializeCarousel = (sectionIndex: number, totalItems: number) => {
+    if (!carouselStates[sectionIndex]) {
+      setCarouselStates(prev => ({
+        ...prev,
+        [sectionIndex]: { currentIndex: 0, isAutoPlaying: true }
+      }));
+    }
+  };
+
+  const getCarouselState = (sectionIndex: number) => {
+    return carouselStates[sectionIndex] || { currentIndex: 0, isAutoPlaying: true };
+  };
+
+  const updateCarouselState = (sectionIndex: number, updates: Partial<{ currentIndex: number; isAutoPlaying: boolean }>) => {
+    setCarouselStates(prev => {
+      const currentState = prev[sectionIndex] || { currentIndex: 0, isAutoPlaying: true };
+      return {
+        ...prev,
+        [sectionIndex]: { ...currentState, ...updates }
+      };
+    });
+  };
+
   return (
     <>
       {/* Main Content Section */}
@@ -56,7 +75,7 @@ export function EndpointTemplate({ service }: EndpointTemplateProps) {
                       key={index}
                       className="flex items-start gap-3 p-4 rounded-lg bg-[#1A1A1A] hover:bg-[#222222] transition-colors"
                     >
-                      <CheckCircle className="h-5 w-5 text-[#7C3AED] mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-[#7C3AED] mt-0.5 shrink-0" />
                       <span className="text-gray-300">{feature}</span>
                     </div>
                   ))}
@@ -75,7 +94,7 @@ export function EndpointTemplate({ service }: EndpointTemplateProps) {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#1A1A1A] via-transparent to-transparent" />
                 </div>
 
                 {/* CTA Content */}
@@ -108,49 +127,223 @@ export function EndpointTemplate({ service }: EndpointTemplateProps) {
         <section className="bg-[#0A0A0A] text-white py-12">
           <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
             <h3 className="text-3xl font-bold mb-6">{service.overview.title}</h3>
-            <p className="text-gray-300 leading-relaxed">
-              {service.overview.description}
-            </p>
-          </div>
-        </section>
-      )}
-
-      {/* Comparison Section */}
-      {service.comparisonSection && (
-        <section className="bg-[#0A0A0A] text-white py-12">
-          <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-            <div className="text-center mb-12">
-              <div className="inline-block px-4 py-2 bg-[#7C3AED]/20 rounded-full mb-4">
-                <span className="text-[#7C3AED] font-semibold">Comparison</span>
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                {service.comparisonSection.title}
-              </h3>
-              <p className="text-gray-400 max-w-2xl mx-auto">
-                {service.comparisonSection.subtitle}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {service.comparisonSection.comparisons.map((comparison, index) => (
-                <div
-                  key={index}
-                  className="bg-[#1A1A1A] rounded-lg p-6 border border-[#2A2A2A] hover:border-[#7C3AED] transition-colors"
-                >
-                  <h4 className="text-xl font-bold mb-3">{comparison.title}</h4>
-                  <p className="text-gray-400 mb-6">{comparison.description}</p>
-                  <Link
-                    href="/contact"
-                    className="inline-block px-6 py-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-lg transition-colors duration-300"
-                  >
-                    {comparison.buttonText}
-                  </Link>
-                </div>
+            <div className="space-y-4">
+              {service.overview.description.split('\n\n').map((paragraph, index) => (
+                <p key={index} className="text-gray-300 leading-relaxed">
+                  {paragraph}
+                </p>
               ))}
             </div>
           </div>
         </section>
       )}
+
+      {/* Dynamic Additional Sections */}
+      {service.additionalSections && service.additionalSections.map((section, sectionIndex) => (
+        <DynamicSectionRenderer
+          key={sectionIndex}
+          section={section}
+          sectionIndex={sectionIndex}
+          carouselState={getCarouselState(sectionIndex)}
+          onCarouselUpdate={(updates) => updateCarouselState(sectionIndex, updates)}
+        />
+      ))}
     </>
   );
+}
+
+// Dynamic Section Renderer Component
+interface DynamicSectionRendererProps {
+  section: DynamicSection;
+  sectionIndex: number;
+  carouselState: { currentIndex: number; isAutoPlaying: boolean };
+  onCarouselUpdate: (updates: Partial<{ currentIndex: number; isAutoPlaying: boolean }>) => void;
+}
+
+function DynamicSectionRenderer({ section, sectionIndex, carouselState, onCarouselUpdate }: DynamicSectionRendererProps) {
+  const itemsPerView = 3;
+  const totalItems = section.cards?.length || 0;
+  const maxIndex = Math.max(0, totalItems - itemsPerView);
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (section.type !== "carousel" || !carouselState.isAutoPlaying || totalItems === 0) return;
+
+    const interval = setInterval(() => {
+      onCarouselUpdate({
+        currentIndex: carouselState.currentIndex >= maxIndex ? 0 : carouselState.currentIndex + 1
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [section.type, carouselState.isAutoPlaying, carouselState.currentIndex, maxIndex, totalItems, onCarouselUpdate]);
+
+  const handlePrevious = () => {
+    onCarouselUpdate({
+      isAutoPlaying: false,
+      currentIndex: carouselState.currentIndex <= 0 ? maxIndex : carouselState.currentIndex - 1
+    });
+  };
+
+  const handleNext = () => {
+    onCarouselUpdate({
+      isAutoPlaying: false,
+      currentIndex: carouselState.currentIndex >= maxIndex ? 0 : carouselState.currentIndex + 1
+    });
+  };
+
+  const getVisibleItems = () => {
+    if (!section.cards) return [];
+    return section.cards.slice(carouselState.currentIndex, carouselState.currentIndex + itemsPerView);
+  };
+
+  if (section.type === "carousel" && section.cards) {
+    return (
+      <section className="bg-[#0A0A0A] text-white py-12">
+        <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+          <div className="text-center mb-12">
+            {section.badge && (
+              <div className="inline-block px-4 py-2 bg-[#7C3AED]/20 rounded-full mb-4">
+                <span className="text-[#7C3AED] font-semibold">{section.badge}</span>
+              </div>
+            )}
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
+              {section.sectionTitle}
+            </h3>
+            {section.sectionSubtitle && (
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                {section.sectionSubtitle}
+              </p>
+            )}
+          </div>
+
+          {/* Carousel Container */}
+          <div className="relative px-12 md:px-16 group">
+            {/* Navigation Buttons */}
+            <button
+              onClick={handlePrevious}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#7C3AED] hover:bg-[#6D28D9] text-white p-3 rounded-full transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100"
+              aria-label="Previous items"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+
+            <button
+              onClick={handleNext}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#7C3AED] hover:bg-[#6D28D9] text-white p-3 rounded-full transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100"
+              aria-label="Next items"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+
+            {/* Carousel Items */}
+            <div className="overflow-hidden">
+              <div
+                className="grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 ease-in-out"
+                onMouseEnter={() => onCarouselUpdate({ isAutoPlaying: false })}
+                onMouseLeave={() => onCarouselUpdate({ isAutoPlaying: true })}
+              >
+                {getVisibleItems().map((card, index) => (
+                  <div
+                    key={carouselState.currentIndex + index}
+                    className="bg-[#1A1A1A] rounded-lg p-6 border border-[#2A2A2A] hover:border-[#7C3AED] transition-colors"
+                  >
+                    <h4 className="text-xl font-bold mb-3">{card.title}</h4>
+                    <p className="text-gray-400 mb-6">{card.description}</p>
+                    <Link
+                      href={card.buttonLink || "/contact"}
+                      className="inline-block px-6 py-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-lg transition-colors duration-300"
+                    >
+                      {card.buttonText}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Carousel Indicators */}
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => onCarouselUpdate({ isAutoPlaying: false, currentIndex: index })}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === carouselState.currentIndex
+                      ? "w-8 bg-[#7C3AED]"
+                      : "w-2 bg-gray-600 hover:bg-gray-500"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (section.type === "grid" && section.cards) {
+    return (
+      <section className="bg-[#0A0A0A] text-white py-12">
+        <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+          <div className="text-center mb-12">
+            {section.badge && (
+              <div className="inline-block px-4 py-2 bg-[#7C3AED]/20 rounded-full mb-4">
+                <span className="text-[#7C3AED] font-semibold">{section.badge}</span>
+              </div>
+            )}
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
+              {section.sectionTitle}
+            </h3>
+            {section.sectionSubtitle && (
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                {section.sectionSubtitle}
+              </p>
+            )}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {section.cards.map((card, index) => (
+              <div
+                key={index}
+                className="bg-[#1A1A1A] rounded-lg p-6 border border-[#2A2A2A] hover:border-[#7C3AED] transition-colors"
+              >
+                <h4 className="text-xl font-bold mb-3">{card.title}</h4>
+                <p className="text-gray-400 mb-6">{card.description}</p>
+                <Link
+                  href={card.buttonLink || "/contact"}
+                  className="inline-block px-6 py-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-lg transition-colors duration-300"
+                >
+                  {card.buttonText}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (section.type === "highlighted") {
+    return (
+      <section className="bg-[#0A0A0A] text-white py-12">
+        <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+          <div className="bg-linear-to-br from-[#7C3AED]/20 to-[#a855f7]/10 rounded-lg p-8 border border-[#7C3AED]/30">
+            <h3 className="text-2xl font-bold mb-4">{section.sectionTitle}</h3>
+            <p className="text-gray-300 mb-6">{section.content}</p>
+            {section.buttonText && section.buttonLink && (
+              <Link
+                href={section.buttonLink}
+                className="inline-block px-6 py-3 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-lg transition-colors duration-300"
+              >
+                {section.buttonText}
+              </Link>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return null;
 }

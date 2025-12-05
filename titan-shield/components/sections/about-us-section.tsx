@@ -10,6 +10,7 @@ export function AboutUsSection() {
         <h3 className="text-sm font-semibold text-[#ffffff] uppercase tracking-wider whitespace-nowrap">
           ABOUT US
         </h3>
+        <div className="h-[2px] w-[100px] bg-gradient-to-r from-[#7C3AED] to-transparent"></div>
       </div>
 
       <h2 className="text-3xl md:text-4xl font-bold">

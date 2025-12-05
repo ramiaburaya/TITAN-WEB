@@ -60,6 +60,7 @@ Desktop.ini
 $RECYCLE.BIN/
 __MACOSX/
 .DS_Store
+nul
 
 # Logs
 logs/
