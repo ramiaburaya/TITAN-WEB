@@ -33,6 +33,9 @@ export function Accordion({ items }: AccordionProps) {
           <button
             onClick={() => toggleItem(index)}
             className="w-full flex items-center justify-between p-4 text-left hover:bg-[#222222] transition-all duration-300 group"
+            aria-expanded={openIndex === index}
+            aria-controls={`accordion-panel-${index}`}
+            id={`accordion-button-${index}`}
           >
             <span className={`text-lg font-semibold transition-colors duration-300 ${
               openIndex === index ? "text-[#7C3AED]" : "text-white group-hover:text-gray-200"
@@ -43,10 +46,15 @@ export function Accordion({ items }: AccordionProps) {
               className={`h-5 w-5 text-[#7C3AED] transition-all duration-300 ${
                 openIndex === index ? "rotate-180 scale-110" : "group-hover:scale-110"
               }`}
+              aria-hidden="true"
             />
           </button>
 
           <div
+            id={`accordion-panel-${index}`}
+            role="region"
+            aria-labelledby={`accordion-button-${index}`}
+            hidden={openIndex !== index}
             className={`transition-all duration-500 ease-in-out overflow-hidden ${
               openIndex === index
                 ? "max-h-[2000px] opacity-100"

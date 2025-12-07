@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -12,6 +12,19 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const pathname = usePathname();
+
+  // Close dropdown on Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setServicesDropdownOpen(false);
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, []);
 
   const isActive = (href: string) => {
     if (href === "/") {
@@ -57,6 +70,15 @@ export function Navbar() {
                             ? "text-brand-purple font-semibold"
                             : "text-white"
                         )}
+                        onFocus={() => setServicesDropdownOpen(true)}
+                        onBlur={(e) => {
+                          // Only close if focus is leaving the dropdown container
+                          if (!e.currentTarget.parentElement?.contains(e.relatedTarget as Node)) {
+                            setServicesDropdownOpen(false);
+                          }
+                        }}
+                        aria-haspopup="true"
+                        aria-expanded={servicesDropdownOpen}
                       >
                         {link.label}
                         <ChevronDown className="h-4 w-4" />
@@ -65,13 +87,23 @@ export function Navbar() {
                       {/* Services Dropdown */}
                       {servicesDropdownOpen && (
                         <div className="absolute left-0 top-full pt-2 z-50">
-                          <div className="w-[600px] bg-[#1d1c1c] rounded-lg shadow-xl border border-brand-dark-light overflow-hidden">
+                          <div
+                            role="menu"
+                            className="w-[600px] bg-[#1d1c1c] rounded-lg shadow-xl border border-brand-dark-light overflow-hidden"
+                          >
                             <div className="grid grid-cols-2 gap-1 p-4">
                               {SERVICES_DROPDOWN.map((service) => (
                                 <Link
                                   key={service.href}
                                   href={service.href}
-                                  className="px-4 py-3 rounded-md text-sm text-gray-300 hover:text-brand-purple transition-all"
+                                  role="menuitem"
+                                  className="px-4 py-3 rounded-md text-sm text-gray-300 hover:text-brand-purple transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+                                  onBlur={(e) => {
+                                    // Close dropdown if focus leaves the entire menu
+                                    if (!e.currentTarget.parentElement?.parentElement?.parentElement?.contains(e.relatedTarget as Node)) {
+                                      setServicesDropdownOpen(false);
+                                    }
+                                  }}
                                 >
                                   {service.label}
                                 </Link>
@@ -110,8 +142,9 @@ export function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-gray-300 hover:text-white transition-colors"
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -119,7 +152,10 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-4 border-t border-brand-dark-light animate-in slide-in-from-top-4 duration-200">
+          <nav
+            id="mobile-navigation"
+            className="md:hidden py-4 space-y-4 border-t border-brand-dark-light animate-in slide-in-from-top-4 duration-200"
+          >
             {NAVIGATION_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -135,7 +171,7 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-          </div>
+          </nav>
         )}
       </div>
     </header>

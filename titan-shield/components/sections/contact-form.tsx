@@ -98,13 +98,18 @@ export function ContactForm() {
               name="name"
               value={formData.name}
               onChange={handleChange}
+              required
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? "name-error" : undefined}
               className={`w-full px-4 py-3 bg-[#1A1A1A] border ${
                 errors.name ? "border-red-500" : "border-[#2A2A2A]"
               } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#7C3AED] transition-colors`}
               placeholder="Your Name"
             />
             {errors.name && (
-              <p className="text-red-500 text-sm">{errors.name}</p>
+              <p id="name-error" role="alert" className="text-red-500 text-sm">
+                {errors.name}
+              </p>
             )}
           </div>
 
@@ -116,8 +121,10 @@ export function ContactForm() {
             <div className="flex gap-2 w-full">
               <select
                 name="countryCode"
+                id="countryCode"
                 value={formData.countryCode}
                 onChange={handleChange}
+                aria-label="Country code"
                 className="w-[90px] px-2 py-3 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg text-white text-sm focus:outline-none focus:border-[#7C3AED] transition-colors shrink-0 cursor-pointer"
               >
                 {countryCodes.map((country) => (
@@ -149,13 +156,18 @@ export function ContactForm() {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              required
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? "email-error" : undefined}
               className={`w-full px-4 py-3 bg-[#1A1A1A] border ${
                 errors.email ? "border-red-500" : "border-[#2A2A2A]"
               } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#7C3AED] transition-colors`}
               placeholder="your.email@example.com"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm">{errors.email}</p>
+              <p id="email-error" role="alert" className="text-red-500 text-sm">
+                {errors.email}
+              </p>
             )}
           </div>
 

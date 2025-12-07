@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import type { Service } from "@/config/services";
 import { cn } from "@/lib/cn";
@@ -40,20 +39,29 @@ export function ServiceHero({ service }: ServiceHeroProps) {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" asChild className="group">
-              <Link href="/contact">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
-              className="bg-white/10 hover:bg-white/20 border-white/30"
+            <Link
+              href="/contact"
+              className={cn(
+                "inline-flex items-center justify-center rounded-md font-medium transition-colors group",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2",
+                "bg-transparent text-white border-2 border-white hover:bg-white hover:text-brand-purple",
+                "h-14 px-8 text-lg"
+              )}
             >
-              <Link href="/services">View All Services</Link>
-            </Button>
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="/services"
+              className={cn(
+                "inline-flex items-center justify-center rounded-md font-medium transition-colors",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2",
+                "bg-white/10 hover:bg-white/20 border-2 border-white/30 text-white",
+                "h-14 px-8 text-lg"
+              )}
+            >
+              View All Services
+            </Link>
           </div>
         </div>
       </div>

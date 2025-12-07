@@ -50,8 +50,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning>
+        <a
+          href="#main-content"
+          className="absolute left-0 top-0 z-100 -translate-y-full bg-purple-600 px-4 py-2 text-white transition-transform focus:translate-y-0 rounded-br-md"
+        >
+          Skip to main content
+        </a>
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main id="main-content" className="min-h-screen">
+          {children}
+        </main>
         <Footer />
         <ScrollToTop />
       </body>

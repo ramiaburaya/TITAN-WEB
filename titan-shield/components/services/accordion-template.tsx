@@ -92,7 +92,7 @@ export function AccordionTemplate({ service }: AccordionTemplateProps) {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#1A1A1A] via-transparent to-transparent" />
                 </div>
 
                 {/* CTA Content */}
@@ -212,7 +212,7 @@ export function AccordionTemplate({ service }: AccordionTemplateProps) {
 
                   {/* Horizontal gradient line - full width */}
                   <div className="mb-6">
-                    <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#7C3AED] to-transparent"></div>
+                    <div className="h-0.5 w-full bg-linear-to-r from-transparent via-[#7C3AED] to-transparent"></div>
                   </div>
 
                   {section.buttonText && section.buttonLink && (

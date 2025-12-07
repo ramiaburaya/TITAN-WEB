@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Phone, Mail, ArrowRight } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
+import { cn } from "@/lib/cn";
 
 export function CTABox() {
   return (
@@ -36,17 +36,18 @@ export function CTABox() {
         </a>
       </div>
 
-      <Button
-        size="lg"
-        variant="secondary"
-        className="w-full group"
-        asChild
+      <Link
+        href="/contact"
+        className={cn(
+          "inline-flex items-center justify-center rounded-md font-medium transition-colors w-full group",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2",
+          "bg-transparent text-white border-2 border-white hover:bg-white hover:text-brand-purple",
+          "h-14 px-8 text-lg"
+        )}
       >
-        <Link href="/contact">
-          Schedule Consultation
-          <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-        </Link>
-      </Button>
+        Schedule Consultation
+        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+      </Link>
 
       <p className="text-sm text-gray-200 mt-4 text-center">
         24/7 Security Operations Center
