@@ -134,7 +134,7 @@ export function TrustedAlliances() {
         transform: diff < 0 ? 'translate(-250%, -50%) scale(0.6)' : 'translate(150%, -50%) scale(0.6)',
         opacity: 0,
         zIndex: 0,
-        pointerEvents: 'none',
+        pointerEvents: 'none' as const,
       };
     }
   };
@@ -180,7 +180,7 @@ export function TrustedAlliances() {
                 <div
                   key={logo.alt} // STABLE KEY is crucial for transition
                   className="flex flex-col items-center justify-center w-64 md:w-80"
-                  style={style as any}
+                  style={style}
                 >
                   <div className="flex items-center justify-center w-full h-32 md:h-40 select-none pointer-events-none px-4">
                     <Image
