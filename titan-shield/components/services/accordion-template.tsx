@@ -55,7 +55,7 @@ export function AccordionTemplate({ service }: AccordionTemplateProps) {
   return (
     <>
       {/* Main Content Section */}
-      <section className="bg-[#0A0A0A] text-white py-20">
+      <section className="bg-brand-dark text-white py-20">
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left Column - Service Details */}
@@ -83,7 +83,7 @@ export function AccordionTemplate({ service }: AccordionTemplateProps) {
 
             {/* Right Column - CTA Card */}
             <div className="lg:sticky lg:top-32 h-fit">
-              <div className="relative bg-[#1A1A1A] rounded-lg overflow-hidden border border-[#2A2A2A]">
+              <div className="relative bg-white/5 rounded-lg overflow-hidden border border-[#2A2A2A]">
                 {/* CTA Image */}
                 <div className="relative h-64 w-full">
                   <Image
@@ -92,7 +92,7 @@ export function AccordionTemplate({ service }: AccordionTemplateProps) {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#1A1A1A] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-brand-dark via-transparent to-transparent" />
                 </div>
 
                 {/* CTA Content */}
@@ -109,7 +109,7 @@ export function AccordionTemplate({ service }: AccordionTemplateProps) {
 
                   <Link
                     href="/contact"
-                    className="block w-full px-6 py-3 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-lg transition-colors duration-300 text-center"
+                    className="block w-full px-6 py-3 bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-semibold rounded-lg transition-colors duration-300 text-center"
                   >
                     {service.ctaButtonText || "Unlock TITANS Power: Connect Now"}
                   </Link>
@@ -123,12 +123,12 @@ export function AccordionTemplate({ service }: AccordionTemplateProps) {
       {/* Additional Sections */}
       {service.additionalSections &&
         service.additionalSections.map((section, index) => (
-          <section key={index} className="bg-[#0A0A0A] text-white py-12 overflow-hidden">
+          <section key={index} className="bg-brand-dark text-white py-12 overflow-hidden">
             <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl flex justify-center">
               <div
                 ref={cardRef}
                 className={cn(
-                  "relative bg-linear-to-br from-[#7C3AED]/20 to-[#a855f7]/10 rounded-lg p-8 border border-[#7C3AED]/30 w-full max-w-3xl overflow-hidden transition-all duration-300",
+                  "relative bg-linear-to-br from-[#8B5CF6]/20 to-[#a855f7]/10 rounded-lg p-8 border border-[#8B5CF6]/30 w-full max-w-3xl overflow-hidden transition-all duration-300",
                   shouldShake && "animate-[shake-rotate_2s_ease-in-out]"
                 )}
               >
@@ -244,7 +244,7 @@ export function AccordionTemplate({ service }: AccordionTemplateProps) {
 
       {/* Overview Section */}
       {service.overview && (
-        <section className="bg-[#0A0A0A] text-white py-12">
+        <section className="bg-brand-dark text-white py-12">
           <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
             <h3 className="text-3xl font-bold mb-6">{service.overview.title}</h3>
             <p className="text-gray-300 leading-relaxed mb-8">

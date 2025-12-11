@@ -36,6 +36,9 @@ export function PageHero({
       {/* Purple gradient overlay - matching hero section */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#7a1cff]/40 via-[#a44bff]/20 to-transparent pointer-events-none" />
 
+      {/* Navbar blending gradient - Smooth transition from navbar color */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#211E1E] to-transparent pointer-events-none" />
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">

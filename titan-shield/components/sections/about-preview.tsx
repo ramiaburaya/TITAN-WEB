@@ -12,13 +12,13 @@ export function AboutPreview() {
   ];
 
   return (
-    <section className="bg-[#141214] py-16 md:py-20 lg:py-24">
+    <section className="bg-brand-dark py-16 md:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         {/* Mobile: stack everything */}
         <div className="lg:hidden flex flex-col gap-8">
           {/* Label */}
           <div className="flex items-center gap-4">
-            <div className="h-[2px] w-20 bg-gradient-to-r from-transparent to-[#9333ea]" />
+            <div className="h-[2px] w-20 bg-gradient-to-r from-transparent to-[#8B5CF6]" />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/70">
               About TITAN
             </span>
@@ -38,7 +38,7 @@ export function AboutPreview() {
           </div>
 
           {/* Feature card */}
-          <div className="bg-[#1a1520] rounded-3xl px-6 py-8">
+          <div className="bg-white/5 rounded-3xl px-6 py-8">
             <Image
               src="/assets/titan-warrior-graphic.png"
               alt="Cybersecurity illustration"
@@ -51,7 +51,7 @@ export function AboutPreview() {
             <ul className="space-y-3 text-sm text-white/80 mb-6">
               {highlights.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#9333ea] text-[#9333ea]">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#8B5CF6] text-[#8B5CF6]">
                     <Check className="w-3 h-3" />
                   </span>
                   <span>{item}</span>
@@ -61,7 +61,7 @@ export function AboutPreview() {
 
             <Link
               href="/about"
-              className="inline-flex w-full items-center justify-center rounded-full bg-[#9333ea] px-6 py-3 text-sm font-medium text-white shadow-[0_0_30px_rgba(147,51,234,0.6)] hover:shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:scale-95 transition-all duration-300"
+              className="inline-flex w-full items-center justify-center rounded-full bg-[#8B5CF6] px-6 py-3 text-sm font-medium text-white shadow-[0_0_30px_rgba(139,92,246,0.6)] hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] hover:scale-95 transition-all duration-300"
             >
               More About Us
             </Link>
@@ -70,7 +70,7 @@ export function AboutPreview() {
           {/* Bottom brand text */}
           <div className="mt-4">
             <p className="text-xl font-semibold text-white">Titan Shield</p>
-            <p className="text-xl text-[#9333ea]">The TITANS</p>
+            <p className="text-xl text-[#8B5CF6]">The TITANS</p>
             <p className="text-xl text-white/60">Cyber Security</p>
           </div>
         </div>
@@ -81,7 +81,7 @@ export function AboutPreview() {
           <div className="flex flex-col justify-between min-h-[600px]">
             {/* Top: ABOUT TITAN label */}
             <div className="flex items-center gap-4">
-              <div className="h-[2px] w-20 bg-gradient-to-r from-transparent to-[#9333ea]" />
+              <div className="h-[2px] w-20 bg-gradient-to-r from-transparent to-[#8B5CF6]" />
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/70">
                 About TITAN
               </span>
@@ -90,7 +90,7 @@ export function AboutPreview() {
             {/* Bottom: Brand text cluster */}
             <div>
               <p className="text-2xl font-semibold text-white mb-1">Titan Shield</p>
-              <p className="text-2xl text-[#9333ea] mb-1">The TITANS</p>
+              <p className="text-2xl text-[#8B5CF6] mb-1">The TITANS</p>
               <p className="text-2xl text-white/60">Cyber Security</p>
             </div>
           </div>
@@ -126,7 +126,7 @@ export function AboutPreview() {
 
               {/* Right: Feature card with superhero image */}
               <div className="flex flex-col w-full">
-                <div className="bg-[#1a1520] rounded-3xl mb-6">
+                <div className="bg-white/5 rounded-3xl mb-6">
                   <Image
                     src="/assets/about-superhero.webp"
                     alt="Cybersecurity illustration"
@@ -139,7 +139,7 @@ export function AboutPreview() {
                 <ul className="space-y-3 text-base text-white/80 mb-8">
                   {highlights.map((item) => (
                     <li key={item} className="flex items-center gap-3">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#9333ea] text-[#9333ea]">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#8B5CF6] text-[#8B5CF6]">
                         <Check className="w-3 h-3" />
                       </span>
                       <span>{item}</span>
@@ -149,7 +149,7 @@ export function AboutPreview() {
 
                 <Link
                   href="/about"
-                  className="inline-flex w-full items-center justify-center rounded-full bg-[#9333ea] px-6 py-3 text-sm font-medium text-white shadow-[0_0_30px_rgba(147,51,234,0.6)] hover:shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:scale-95 transition-all duration-300"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-[#8B5CF6] px-6 py-3 text-sm font-medium text-white shadow-[0_0_30px_rgba(139,92,246,0.6)] hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] hover:scale-95 transition-all duration-300"
                 >
                   More About Us
                 </Link>

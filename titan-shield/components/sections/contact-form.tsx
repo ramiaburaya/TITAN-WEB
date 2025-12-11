@@ -73,18 +73,18 @@ export function ContactForm() {
     <div className="space-y-6">
       {/* Header with gradient lines */}
       <div className="flex items-center gap-4">
-        <div className="h-0.5 w-[100px] bg-linear-to-l from-[#7C3AED] to-transparent"></div>
+        <div className="h-0.5 w-[100px] bg-linear-to-l from-[#8B5CF6] to-transparent"></div>
         <h3 className="text-sm font-semibold text-[#ffffff] uppercase tracking-wider whitespace-nowrap">
           CONTACT US
         </h3>
-        <div className="h-0.5 w-[100px] bg-linear-to-r from-[#7C3AED] to-transparent"></div>
+        <div className="h-0.5 w-[100px] bg-linear-to-r from-[#8B5CF6] to-transparent"></div>
       </div>
 
       <h2 className="text-3xl md:text-4xl font-bold text-white">
         Send us a Message
       </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-6 p-8 border-2 border-[#3A3A3A] rounded-lg bg-[#0F0F0F]">
+      <form onSubmit={handleSubmit} className="space-y-6 p-8 border-2 border-[#3A3A3A] rounded-lg bg-brand-dark">
         {/* 2x2 Grid for first 4 fields */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Name Field */}
@@ -101,9 +101,9 @@ export function ContactForm() {
               required
               aria-invalid={!!errors.name}
               aria-describedby={errors.name ? "name-error" : undefined}
-              className={`w-full px-4 py-3 bg-[#1A1A1A] border ${
+              className={`w-full px-4 py-3 bg-white/5 border ${
                 errors.name ? "border-red-500" : "border-[#2A2A2A]"
-              } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#7C3AED] transition-colors`}
+              } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#8B5CF6] transition-colors`}
               placeholder="Your Name"
             />
             {errors.name && (
@@ -125,7 +125,7 @@ export function ContactForm() {
                 value={formData.countryCode}
                 onChange={handleChange}
                 aria-label="Country code"
-                className="w-[90px] px-2 py-3 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg text-white text-sm focus:outline-none focus:border-[#7C3AED] transition-colors shrink-0 cursor-pointer"
+                className="w-[90px] px-2 py-3 bg-white/5 border border-[#2A2A2A] rounded-lg text-white text-sm focus:outline-none focus:border-[#8B5CF6] transition-colors shrink-0 cursor-pointer"
               >
                 {countryCodes.map((country) => (
                   <option key={country.code} value={country.code}>
@@ -139,7 +139,7 @@ export function ContactForm() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="flex-1 min-w-0 px-4 py-3 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#7C3AED] transition-colors"
+                className="flex-1 min-w-0 px-4 py-3 bg-white/5 border border-[#2A2A2A] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#8B5CF6] transition-colors"
                 placeholder="562 420000"
               />
             </div>
@@ -159,9 +159,9 @@ export function ContactForm() {
               required
               aria-invalid={!!errors.email}
               aria-describedby={errors.email ? "email-error" : undefined}
-              className={`w-full px-4 py-3 bg-[#1A1A1A] border ${
+              className={`w-full px-4 py-3 bg-white/5 border ${
                 errors.email ? "border-red-500" : "border-[#2A2A2A]"
-              } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#7C3AED] transition-colors`}
+              } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#8B5CF6] transition-colors`}
               placeholder="your.email@example.com"
             />
             {errors.email && (
@@ -182,7 +182,7 @@ export function ContactForm() {
               name="subject"
               value={formData.subject}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#7C3AED] transition-colors"
+              className="w-full px-4 py-3 bg-white/5 border border-[#2A2A2A] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#8B5CF6] transition-colors"
               placeholder="How can we help?"
             />
           </div>
@@ -199,7 +199,7 @@ export function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             rows={6}
-            className="w-full px-4 py-3 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#7C3AED] transition-colors resize-none"
+            className="w-full px-4 py-3 bg-white/5 border border-[#2A2A2A] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#8B5CF6] transition-colors resize-none"
             placeholder="Tell us more about your inquiry..."
           />
         </div>
@@ -207,7 +207,7 @@ export function ContactForm() {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full md:w-auto px-8 py-3 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-lg transition-colors duration-300"
+          className="w-full md:w-auto px-8 py-3 bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-semibold rounded-lg transition-colors duration-300"
         >
           Send The Message
         </button>

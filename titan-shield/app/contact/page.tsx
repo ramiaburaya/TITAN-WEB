@@ -22,7 +22,7 @@ export default function ContactPage() {
       />
 
       {/* Contact Section */}
-      <section className="bg-[#0A0A0A] text-white py-20">
+      <section className="bg-brand-dark text-white py-20">
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left Column - Contact Info Cards */}
@@ -35,38 +35,19 @@ export default function ContactPage() {
       </section>
 
       {/* Map Placeholder */}
-      <section className="bg-[#0A0A0A] pb-20">
+      <section className="bg-brand-dark pb-20">
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-          <div className="bg-[#1A1A1A] rounded-lg overflow-hidden h-[400px] md:h-[500px] flex items-center justify-center border border-[#2A2A2A]">
-            <div className="text-center">
-              <div className="mb-4">
-                <svg
-                  className="w-16 h-16 mx-auto text-[#7C3AED]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                Interactive Map Coming Soon
-              </h3>
-              <p className="text-gray-400">
-                Find us at 4th Floor, Hamayel Center, Office No. 3, Al-Bireh, Palestine
-              </p>
-            </div>
+          <div className="bg-white/5 rounded-lg overflow-hidden h-[400px] md:h-[500px] border border-[#2A2A2A]">
+            <iframe
+              src="https://maps.google.com/maps?q=31.924193,35.214302&hl=en&z=17&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="grayscale brightness-75 contrast-125 hover:grayscale-0 transition-all duration-500"
+            />
           </div>
         </div>
       </section>

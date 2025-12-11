@@ -82,7 +82,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#7a1cff]/55 via-[#a44bff]/25 to-transparent pointer-events-none" />
 
       {/* Layer 4: Left Side Vertical Social Icons (Foreground) */}
-      <div className="absolute left-4 md:left-8 lg:left-12 xl:left-16 top-48 md:top-52 flex flex-col gap-6 text-white/70 z-20">
+      <div className="absolute left-4 md:left-8 lg:left-12 xl:left-16 top-48 md:top-52 flex flex-col gap-6 text-white/70 z-20 animate-[fade-in-left_1s_ease-out_0.8s_backwards]">
         <a
           href={SITE_CONFIG.links.facebook}
           target="_blank"
@@ -104,7 +104,7 @@ export function HeroSection() {
       </div>
 
       {/* Vertical Gradient Line Below Social Icons */}
-      <div className="absolute left-[18px] md:left-[34px] lg:left-[60px] xl:left-[76px] top-[280px] md:top-[300px] flex flex-col z-20">
+      <div className="absolute left-[18px] md:left-[34px] lg:left-[60px] xl:left-[76px] top-[280px] md:top-[300px] flex flex-col z-20 animate-[fade-in-up_1s_ease-out_1s_backwards]">
         <div className="w-[2px] h-[120px] bg-gradient-to-b from-white/70 via-white/40 to-transparent" />
       </div>
 

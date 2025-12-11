@@ -18,7 +18,7 @@ export default function AboutUsPage() {
         ]}
       />
 
-      <div className="bg-[#0A0A0A] text-white py-20">
+      <div className="bg-brand-dark text-white py-20">
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <FoundersMessage />

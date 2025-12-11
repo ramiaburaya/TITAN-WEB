@@ -13,15 +13,20 @@ function ProgressBar({ label, percentage, delay = 0 }: ProgressBarProps) {
   const [width, setWidth] = useState(0);
   const barRef = useRef<HTMLDivElement>(null);
 
+  const timeoutRef = useRef<NodeJS.Timeout>(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setTimeout(() => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            timeoutRef.current = setTimeout(() => {
               setWidth(percentage);
             }, delay);
-            observer.disconnect();
+          } else {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            setWidth(0);
           }
         });
       },
@@ -32,7 +37,10 @@ function ProgressBar({ label, percentage, delay = 0 }: ProgressBarProps) {
       observer.observe(barRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, [percentage, delay]);
 
   return (
@@ -43,7 +51,7 @@ function ProgressBar({ label, percentage, delay = 0 }: ProgressBarProps) {
       </div>
       <div className="w-full h-3 bg-gray-800/50 rounded-full overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-purple-600 to-purple-500 rounded-full transition-all duration-1000 ease-out"
+          className="h-full bg-gradient-to-r from-purple-600 to-purple-500 rounded-full transition-all duration-[2500ms] ease-out"
           style={{ width: `${width}%` }}
         />
       </div>
@@ -53,13 +61,13 @@ function ProgressBar({ label, percentage, delay = 0 }: ProgressBarProps) {
 
 export function WhyTitan() {
   return (
-    <section className="relative py-24 md:py-28 bg-[#0c0c0f] overflow-hidden">
+    <section className="relative py-24 md:py-28 bg-brand-dark overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         {/* Desktop: 3-column grid with row spans */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
 
           {/* Card 1: Expert-Led Security (1 column) */}
-          <div className="lg:col-span-1 bg-[#111118] rounded-2xl overflow-hidden border border-gray-800/30">
+          <div className="lg:col-span-1 bg-white/5 rounded-2xl overflow-hidden border border-gray-800/30">
             <div className="relative w-full aspect-video">
               <Image
                 src="/assets/expert-led.webp"
@@ -79,13 +87,13 @@ export function WhyTitan() {
           </div>
 
           {/* Card 2: WHY TITAN - Comprehensive Protection Strategies (2 columns) */}
-          <div className="lg:col-span-2 bg-[#11121a] rounded-2xl p-8 md:p-10 border border-purple-500/20 shadow-lg shadow-purple-500/10">
+          <div className="lg:col-span-2 bg-white/5 rounded-2xl p-8 md:p-10 border border-[#8B5CF6]/20 shadow-lg shadow-[#8B5CF6]/10">
             {/* Eyebrow + Title */}
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-[2px] w-12 bg-gradient-to-r from-purple-600 to-transparent" />
+                <div className="h-[2px] w-12 bg-gradient-to-r from-[#8B5CF6] to-transparent" />
                 <span className="text-gray-400 text-xs uppercase tracking-[0.2em]">WHY</span>
-                <span className="text-purple-500 text-xs uppercase tracking-[0.2em] font-semibold inline-block animate-[bounce-shield_6s_ease-in-out_infinite]">TITAN</span>
+                <span className="text-[#8B5CF6] text-xs uppercase tracking-[0.2em] font-semibold inline-block animate-[bounce-shield_6s_ease-in-out_infinite]">TITAN</span>
               </div>
               <h2 className="text-white text-3xl md:text-4xl font-bold leading-tight">
                 Comprehensive Protection Strategies
@@ -101,7 +109,7 @@ export function WhyTitan() {
           </div>
 
           {/* Card 3: 24/7 Security Operations (spans 2 columns on desktop) */}
-          <div className="lg:col-span-2 bg-[#111118] rounded-2xl overflow-hidden border border-gray-800/30 lg:h-80">
+          <div className="lg:col-span-2 bg-white/5 rounded-2xl overflow-hidden border border-gray-800/30 lg:h-80">
             <div className="relative w-full aspect-video lg:h-48">
               <Image
                 src="/assets/security-operations.webp"
@@ -121,7 +129,7 @@ export function WhyTitan() {
           </div>
 
           {/* Card 4: Tailored Solutions (1 column) */}
-          <div className="bg-[#111118] rounded-2xl overflow-hidden border border-gray-800/30 flex flex-col lg:h-80">
+          <div className="bg-white/5 rounded-2xl overflow-hidden border border-gray-800/30 flex flex-col lg:h-80">
             <div className="p-6">
               <h3 className="text-white text-lg md:text-xl font-semibold mb-2">
                 Tailored Solutions

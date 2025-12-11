@@ -51,7 +51,7 @@ export function EndpointTemplate({ service }: EndpointTemplateProps) {
   return (
     <>
       {/* Main Content Section */}
-      <section className="bg-[#0A0A0A] text-white py-20">
+      <section className="bg-brand-dark text-white py-20">
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left Column - Service Details */}
@@ -73,9 +73,9 @@ export function EndpointTemplate({ service }: EndpointTemplateProps) {
                   {service.features.map((feature, index) => (
                     <div
                       key={index}
-                      className="flex items-start gap-3 p-4 rounded-lg bg-[#1A1A1A] hover:bg-[#222222] transition-colors"
+                      className="flex items-start gap-3 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
                     >
-                      <CheckCircle className="h-5 w-5 text-[#7C3AED] mt-0.5 shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-[#8B5CF6] mt-0.5 shrink-0" />
                       <span className="text-gray-300">{feature}</span>
                     </div>
                   ))}
@@ -85,7 +85,7 @@ export function EndpointTemplate({ service }: EndpointTemplateProps) {
 
             {/* Right Column - CTA Card */}
             <div className="lg:sticky lg:top-32 h-fit">
-              <div className="relative bg-[#1A1A1A] rounded-lg overflow-hidden border border-[#2A2A2A]">
+              <div className="relative bg-white/5 rounded-lg overflow-hidden border border-[#2A2A2A]">
                 {/* CTA Image */}
                 <div className="relative h-64 w-full">
                   <Image
@@ -94,7 +94,7 @@ export function EndpointTemplate({ service }: EndpointTemplateProps) {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#1A1A1A] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-brand-dark via-transparent to-transparent" />
                 </div>
 
                 {/* CTA Content */}
@@ -111,7 +111,7 @@ export function EndpointTemplate({ service }: EndpointTemplateProps) {
 
                   <Link
                     href="/contact"
-                    className="block w-full px-6 py-3 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-lg transition-colors duration-300 text-center"
+                    className="block w-full px-6 py-3 bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-semibold rounded-lg transition-colors duration-300 text-center"
                   >
                     Get More: Protect your devices
                   </Link>
@@ -124,7 +124,7 @@ export function EndpointTemplate({ service }: EndpointTemplateProps) {
 
       {/* Overview Section */}
       {service.overview && (
-        <section className="bg-[#0A0A0A] text-white py-12">
+        <section className="bg-brand-dark text-white py-12">
           <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
             <h3 className="text-3xl font-bold mb-6">{service.overview.title}</h3>
             <div className="space-y-4">
@@ -199,12 +199,12 @@ function DynamicSectionRenderer({ section, sectionIndex, carouselState, onCarous
 
   if (section.type === "carousel" && section.cards) {
     return (
-      <section className="bg-[#0A0A0A] text-white py-12">
+      <section className="bg-brand-dark text-white py-12">
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="text-center mb-12">
             {section.badge && (
-              <div className="inline-block px-4 py-2 bg-[#7C3AED]/20 rounded-full mb-4">
-                <span className="text-[#7C3AED] font-semibold">{section.badge}</span>
+              <div className="inline-block px-4 py-2 bg-[#8B5CF6]/20 rounded-full mb-4">
+                <span className="text-[#8B5CF6] font-semibold">{section.badge}</span>
               </div>
             )}
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
@@ -222,7 +222,7 @@ function DynamicSectionRenderer({ section, sectionIndex, carouselState, onCarous
             {/* Navigation Buttons */}
             <button
               onClick={handlePrevious}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#7C3AED] hover:bg-[#6D28D9] text-white p-3 rounded-full transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#8B5CF6] hover:bg-[#7C3AED] text-white p-3 rounded-full transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100"
               aria-label="Previous items"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -230,7 +230,7 @@ function DynamicSectionRenderer({ section, sectionIndex, carouselState, onCarous
 
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#7C3AED] hover:bg-[#6D28D9] text-white p-3 rounded-full transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#8B5CF6] hover:bg-[#7C3AED] text-white p-3 rounded-full transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100"
               aria-label="Next items"
             >
               <ChevronRight className="h-6 w-6" />
@@ -246,13 +246,13 @@ function DynamicSectionRenderer({ section, sectionIndex, carouselState, onCarous
                 {getVisibleItems().map((card, index) => (
                   <div
                     key={carouselState.currentIndex + index}
-                    className="bg-[#1A1A1A] rounded-lg p-6 border border-[#2A2A2A] hover:border-[#7C3AED] transition-colors"
+                    className="bg-white/5 rounded-lg p-6 border border-[#2A2A2A] hover:border-[#8B5CF6] transition-colors"
                   >
                     <h4 className="text-xl font-bold mb-3">{card.title}</h4>
                     <p className="text-gray-400 mb-6">{card.description}</p>
                     <Link
                       href={card.buttonLink || "/contact"}
-                      className="inline-block px-6 py-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-lg transition-colors duration-300"
+                      className="inline-block px-6 py-2 bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-semibold rounded-lg transition-colors duration-300"
                     >
                       {card.buttonText}
                     </Link>
@@ -269,7 +269,7 @@ function DynamicSectionRenderer({ section, sectionIndex, carouselState, onCarous
                   onClick={() => onCarouselUpdate({ isAutoPlaying: false, currentIndex: index })}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     index === carouselState.currentIndex
-                      ? "w-8 bg-[#7C3AED]"
+                      ? "w-8 bg-[#8B5CF6]"
                       : "w-2 bg-gray-600 hover:bg-gray-500"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
@@ -284,12 +284,12 @@ function DynamicSectionRenderer({ section, sectionIndex, carouselState, onCarous
 
   if (section.type === "grid" && section.cards) {
     return (
-      <section className="bg-[#0A0A0A] text-white py-12">
+      <section className="bg-brand-dark text-white py-12">
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="text-center mb-12">
             {section.badge && (
-              <div className="inline-block px-4 py-2 bg-[#7C3AED]/20 rounded-full mb-4">
-                <span className="text-[#7C3AED] font-semibold">{section.badge}</span>
+              <div className="inline-block px-4 py-2 bg-[#8B5CF6]/20 rounded-full mb-4">
+                <span className="text-[#8B5CF6] font-semibold">{section.badge}</span>
               </div>
             )}
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
@@ -306,13 +306,13 @@ function DynamicSectionRenderer({ section, sectionIndex, carouselState, onCarous
             {section.cards.map((card, index) => (
               <div
                 key={index}
-                className="bg-[#1A1A1A] rounded-lg p-6 border border-[#2A2A2A] hover:border-[#7C3AED] transition-colors"
+                className="bg-white/5 rounded-lg p-6 border border-[#2A2A2A] hover:border-[#8B5CF6] transition-colors"
               >
                 <h4 className="text-xl font-bold mb-3">{card.title}</h4>
                 <p className="text-gray-400 mb-6">{card.description}</p>
                 <Link
                   href={card.buttonLink || "/contact"}
-                  className="inline-block px-6 py-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-lg transition-colors duration-300"
+                  className="inline-block px-6 py-2 bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-semibold rounded-lg transition-colors duration-300"
                 >
                   {card.buttonText}
                 </Link>
@@ -326,15 +326,15 @@ function DynamicSectionRenderer({ section, sectionIndex, carouselState, onCarous
 
   if (section.type === "highlighted") {
     return (
-      <section className="bg-[#0A0A0A] text-white py-12">
+      <section className="bg-brand-dark text-white py-12">
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-          <div className="bg-linear-to-br from-[#7C3AED]/20 to-[#a855f7]/10 rounded-lg p-8 border border-[#7C3AED]/30">
+          <div className="bg-linear-to-br from-[#8B5CF6]/20 to-[#a855f7]/10 rounded-lg p-8 border border-[#8B5CF6]/30">
             <h3 className="text-2xl font-bold mb-4">{section.sectionTitle}</h3>
             <p className="text-gray-300 mb-6">{section.content}</p>
             {section.buttonText && section.buttonLink && (
               <Link
                 href={section.buttonLink}
-                className="inline-block px-6 py-3 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-lg transition-colors duration-300"
+                className="inline-block px-6 py-3 bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-semibold rounded-lg transition-colors duration-300"
               >
                 {section.buttonText}
               </Link>

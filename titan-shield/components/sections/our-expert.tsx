@@ -109,7 +109,7 @@ const experts: Expert[] = [
 
 function ExpertCard({ expert }: { expert: Expert }) {
   return (
-    <div className="group relative bg-[#1A1A1A] rounded-lg overflow-hidden hover:bg-[#222222] transition-all duration-300 h-full min-h-[220px]">
+    <div className="group relative bg-white/5 rounded-lg overflow-hidden hover:bg-white/10 transition-all duration-300 h-full min-h-[220px]">
       {/* Background Image - Bottom Right */}
       <div className="absolute bottom-0 right-0 w-[50%] h-[70%] grayscale group-hover:grayscale-0 transition-all duration-500 opacity-40 group-hover:opacity-60">
         <Image
@@ -144,7 +144,7 @@ function ExpertCard({ expert }: { expert: Expert }) {
               href={expert.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-[#2A2A2A] rounded-lg hover:bg-[#7C3AED] transition-colors duration-300"
+              className="p-2 bg-[#2A2A2A] rounded-lg hover:bg-[#8B5CF6] transition-colors duration-300"
               aria-label="Facebook"
             >
               <FacebookIcon className="w-4 h-4" />
@@ -155,7 +155,7 @@ function ExpertCard({ expert }: { expert: Expert }) {
               href={expert.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-[#2A2A2A] rounded-lg hover:bg-[#7C3AED] transition-colors duration-300"
+              className="p-2 bg-[#2A2A2A] rounded-lg hover:bg-[#8B5CF6] transition-colors duration-300"
               aria-label="LinkedIn"
             >
               <LinkedinIcon className="w-4 h-4" />
@@ -186,15 +186,15 @@ export function OurExpert() {
   );
 
   return (
-    <section className="bg-[#0A0A0A] text-white py-20">
+    <section className="bg-brand-dark text-white py-20">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-0.5 w-[100px] bg-linear-to-l from-[#7C3AED] to-transparent"></div>
+            <div className="h-0.5 w-[100px] bg-linear-to-l from-[#8B5CF6] to-transparent"></div>
             <h3 className="text-sm font-semibold text-[#f6f0ff] uppercase tracking-wider whitespace-nowrap">
               OUR EXPERTS
             </h3>
-            <div className="h-0.5 w-[100px] bg-linear-to-r from-[#7C3AED] to-transparent"></div>
+            <div className="h-0.5 w-[100px] bg-linear-to-r from-[#8B5CF6] to-transparent"></div>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold">
             Protecting Your Digital Future
@@ -208,14 +208,14 @@ export function OurExpert() {
             <>
               <button
                 onClick={handlePrev}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-[#7C3AED] hover:bg-[#6D28D9] text-white p-3 rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-[#8B5CF6] hover:bg-[#7C3AED] text-white p-3 rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={handleNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-[#7C3AED] hover:bg-[#6D28D9] text-white p-3 rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-[#8B5CF6] hover:bg-[#7C3AED] text-white p-3 rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
                 aria-label="Next page"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -223,10 +223,15 @@ export function OurExpert() {
             </>
           )}
 
-          {/* 3x3 Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+          {/* Responsive Grid/Slider */}
+          <div className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto pb-6 md:pb-0 scrollbar-hide">
             {currentExperts.map((expert, index) => (
-              <ExpertCard key={`${currentPage}-${index}`} expert={expert} />
+              <div 
+                key={`${currentPage}-${index}`} 
+                className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 snap-center flex-shrink-0 md:flex-shrink"
+              >
+                <ExpertCard expert={expert} />
+              </div>
             ))}
           </div>
         </div>

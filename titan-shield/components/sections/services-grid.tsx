@@ -5,7 +5,7 @@ import { SERVICES } from "@/config/services";
 
 export function ServicesGrid() {
   return (
-    <section className="relative py-24 md:py-28 bg-[#0a0a0a] overflow-hidden">
+    <section className="relative py-24 md:py-28 bg-brand-dark overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         {/* Section header */}
         <div className="text-center mb-16">
@@ -15,11 +15,11 @@ export function ServicesGrid() {
 
           {/* Decorative gradient line */}
           <div className="flex justify-center mb-4">
-            <div className="h-[2px] w-24 bg-gradient-to-l from-[#9333ea] to-transparent" />
+            <div className="h-[2px] w-24 bg-gradient-to-l from-[#8B5CF6] to-transparent" />
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white">
-            Your Trusted <span className="text-[#9333ea] inline-block animate-[bounce-shield_6s_ease-in-out_infinite]">Shield</span> in Cybersecurity
+            Your Trusted <span className="text-[#8B5CF6] inline-block animate-[bounce-shield_6s_ease-in-out_infinite]">Shield</span> in Cybersecurity
           </h2>
         </div>
 

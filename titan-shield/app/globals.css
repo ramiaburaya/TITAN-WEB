@@ -6,7 +6,7 @@
   /* Brand Colors (extracted from screenshots) */
   --brand-purple: #8B5CF6;
   --brand-purple-dark: #5b21b6;
-  --brand-dark: #211E1E;
+  --brand-dark: #18181A;
   --brand-dark-light: #1e293b;
   --brand-gray: #475569;
   --brand-gray-light: #94a3b8;
@@ -220,5 +220,16 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
