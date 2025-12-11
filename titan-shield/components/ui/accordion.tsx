@@ -66,7 +66,7 @@ export function Accordion({ items }: AccordionProps) {
                 <ul className="space-y-3">
                   {item.content.map((point, idx) => (
                     <li key={idx} className="flex items-center gap-3 group">
-                      <span className="flex-shrink-0 w-2 h-2 rounded-full bg-[#7C3AED] group-hover:scale-150 transition-transform" />
+                      <span className="shrink-0 w-2 h-2 rounded-full bg-[#7C3AED] group-hover:scale-150 transition-transform" />
                       <span className="text-gray-300 leading-relaxed">{point}</span>
                     </li>
                   ))}
@@ -80,7 +80,7 @@ export function Accordion({ items }: AccordionProps) {
                         <ul key={idx} className="space-y-3 mt-3">
                           {paragraph.split('\n').filter(line => line.trim()).map((line, lineIdx) => (
                             <li key={lineIdx} className="flex items-center gap-3 group">
-                              <span className="flex-shrink-0 w-2 h-2 rounded-full bg-[#7C3AED] group-hover:scale-150 transition-transform" />
+                              <span className="shrink-0 w-2 h-2 rounded-full bg-[#7C3AED] group-hover:scale-150 transition-transform" />
                               <span className="text-gray-300 leading-relaxed">{line.replace(/^•\s*/, '')}</span>
                             </li>
                           ))}

@@ -73,11 +73,11 @@ export function ContactForm() {
     <div className="space-y-6">
       {/* Header with gradient lines */}
       <div className="flex items-center gap-4">
-        <div className="h-[2px] w-[100px] bg-gradient-to-l from-[#7C3AED] to-transparent"></div>
+        <div className="h-0.5 w-[100px] bg-linear-to-l from-[#7C3AED] to-transparent"></div>
         <h3 className="text-sm font-semibold text-[#ffffff] uppercase tracking-wider whitespace-nowrap">
           CONTACT US
         </h3>
-        <div className="h-[2px] w-[100px] bg-gradient-to-r from-[#7C3AED] to-transparent"></div>
+        <div className="h-0.5 w-[100px] bg-linear-to-r from-[#7C3AED] to-transparent"></div>
       </div>
 
       <h2 className="text-3xl md:text-4xl font-bold text-white">

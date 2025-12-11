@@ -63,7 +63,7 @@ export function PDFViewer({ pdfUrl, title, onClose }: PDFViewerProps) {
               >
                 <ChevronLeft className="w-4 h-4 text-white" />
               </button>
-              <span className="text-sm text-gray-300 min-w-[5rem] text-center">
+              <span className="text-sm text-gray-300 min-w-20 text-center">
                 Page {pageNumber} of {numPages}
               </span>
               <button

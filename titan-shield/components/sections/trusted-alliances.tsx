@@ -44,7 +44,7 @@ export function TrustedAlliances() {
     <section className="bg-[#141214] py-20 md:py-24">
       <div className="mx-auto max-w-5xl px-4 md:px-6 lg:px-8 text-center">
         {/* Decorative top line */}
-        <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#9333ea]/50 to-transparent mx-auto mb-8" />
+        <div className="w-16 h-px bg-linear-to-r from-transparent via-[#9333ea]/50 to-transparent mx-auto mb-8" />
 
         {/* Text Block */}
         <div className="space-y-4 mb-16">
@@ -84,15 +84,15 @@ export function TrustedAlliances() {
                 </div>
                 {/* Decorative line under center logo */}
                 {logo.position === 'center' && (
-                  <div className="mt-4 h-[1px] w-20 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                  <div className="mt-4 h-px w-20 bg-linear-to-r from-transparent via-white/40 to-transparent" />
                 )}
               </div>
             ))}
           </div>
 
           {/* Enhanced gradient overlays - responsive widths */}
-          <div className="absolute inset-y-0 left-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-r from-[#141214] via-[#141214]/80 to-transparent pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-l from-[#141214] via-[#141214]/80 to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-linear-to-r from-[#141214] via-[#141214]/80 to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-linear-to-l from-[#141214] via-[#141214]/80 to-transparent pointer-events-none" />
         </div>
 
         {/* Dots indicator */}

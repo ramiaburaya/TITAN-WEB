@@ -13,7 +13,7 @@ export function ServiceHero({ service }: ServiceHeroProps) {
   return (
     <section
       className={cn(
-        "relative overflow-hidden py-24 bg-gradient-to-br",
+        "relative overflow-hidden py-24 bg-linear-to-br",
         service.color
       )}
     >

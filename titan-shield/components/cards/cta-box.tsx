@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 
 export function CTABox() {
   return (
-    <div className="sticky top-24 p-8 rounded-lg bg-gradient-to-br from-brand-purple to-pink-600 text-white">
+    <div className="sticky top-24 p-8 rounded-lg bg-linear-to-br from-brand-purple to-pink-600 text-white">
       <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
       <p className="text-gray-100 mb-6">
         Contact our security experts today for a free consultation and learn

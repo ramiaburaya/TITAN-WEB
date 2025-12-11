@@ -39,8 +39,7 @@ export const SERVICES: Service[] = [
       "Simulating real-world cyberattacks, our ethical hacking services expose vulnerabilities before hackers can exploit them.",
     features: [
       "Web, mobile, and API penetration testing",
-      "Network and infrastructure security testing (internal & external)",
-      "Network and infrastructure security testing (internal & external)",
+      "Network and infrastructure security testing",
       "Wireless & IoT security testing",
       "Red Team exercises to test incident response readiness",
       "Physical security penetration testing",
