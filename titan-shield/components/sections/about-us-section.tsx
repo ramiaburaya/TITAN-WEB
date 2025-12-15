@@ -17,13 +17,13 @@ export function AboutUsSection() {
         The TITANS of Cybersecurity
       </h2>
 
-      <div className="space-y-4 text-gray-300 leading-relaxed">
+      <div className="space-y-4 text-gray-300 leading-relaxed text-lg">
         <p>
           We protect businesses from evolving cyber threats with cutting-edge solutions and expert strategies.
         </p>
 
         <p>
-          Our team ensures compliance, safeguards digital assets, and strengthens resilience. Whether you&apos;re a startup or a global enterprise, <span className="text-[#7C3AED]">Titan Shield</span> is committed to securing your future.
+          Our team ensures compliance, safeguards digital assets, and strengthens resilience. Whether you&apos;re a startup or a global enterprise, <span className="text-[#7C3AED]">TITAN Shield</span> is committed to securing your future.
         </p>
 
         <p>
@@ -31,9 +31,9 @@ export function AboutUsSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-8 pt-8">
-        <div className="flex flex-col items-center text-center space-y-4">
-          <div className="relative w-20 h-20">
+      <div className="grid grid-cols-2 gap-12 pt-8">
+        <div className="flex flex-col items-center text-center space-y-6">
+          <div className="relative w-32 h-32">
             <Image
               src="/assets/About_Us_Page/training-1.png"
               alt="Cyber Defense Innovation"
@@ -41,13 +41,13 @@ export function AboutUsSection() {
               className="object-contain"
             />
           </div>
-          <p className="text-white font-semibold">
+          <p className="text-white font-semibold text-lg">
             Cyber Defense Innovation
           </p>
         </div>
 
-        <div className="flex flex-col items-center text-center space-y-4">
-          <div className="relative w-20 h-20">
+        <div className="flex flex-col items-center text-center space-y-6">
+          <div className="relative w-32 h-32">
             <Image
               src="/assets/About_Us_Page/service-cloud.png"
               alt="Protecting Your Digital World"
@@ -55,7 +55,7 @@ export function AboutUsSection() {
               className="object-contain"
             />
           </div>
-          <p className="text-white font-semibold">
+          <p className="text-white font-semibold text-lg">
             Protecting Your Digital World
           </p>
         </div>

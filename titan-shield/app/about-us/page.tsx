@@ -2,7 +2,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { FoundersMessage } from "@/components/sections/founders-message";
 import { AboutUsSection } from "@/components/sections/about-us-section";
 import { OurExpert } from "@/components/sections/our-expert";
-import { WhyTitan } from "@/components/sections/why-titan";
+import { WhyTITAN } from "@/components/sections/why-titan";
 import { NewsletterSection } from "@/components/sections/newsletter-section";
 
 export default function AboutUsPage() {
@@ -28,7 +28,7 @@ export default function AboutUsPage() {
       </div>
 
       <OurExpert />
-      <WhyTitan />
+      <WhyTITAN />
       <NewsletterSection />
     </>
   );

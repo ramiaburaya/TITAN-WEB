@@ -14,7 +14,7 @@ export function Footer() {
           <Link href="/" className="flex items-center group">
             <Image
               src="/logo.png"
-              alt="Titan Shield Logo"
+              alt="TITAN Shield Logo"
               width={180}
               height={60}
               className="h-auto w-auto max-h-16 transition-opacity group-hover:opacity-80"

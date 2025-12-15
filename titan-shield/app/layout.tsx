@@ -6,8 +6,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Titan Shield - Leading Cybersecurity in Palestine",
-    template: "%s | Titan Shield",
+    default: "TITAN Shield - Leading Cybersecurity in Palestine",
+    template: "%s | TITAN Shield",
   },
   description:
     "Professional cybersecurity services including penetration testing, managed security, and compliance consulting in Palestine.",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "red team",
     "security consulting",
   ],
-  authors: [{ name: "Titan Shield" }],
+  authors: [{ name: "TITAN Shield" }],
   icons: {
     icon: "/favicon.ico",
   },
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://titanshield.ps",
-    siteName: "Titan Shield",
-    title: "Titan Shield - Leading Cybersecurity in Palestine",
+    siteName: "TITAN Shield",
+    title: "TITAN Shield - Leading Cybersecurity in Palestine",
     description:
       "Professional cybersecurity services including penetration testing, managed security, and compliance consulting.",
     images: [{ url: "/logo.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Titan Shield - Leading Cybersecurity in Palestine",
+    title: "TITAN Shield - Leading Cybersecurity in Palestine",
     description:
       "Professional cybersecurity services including penetration testing, managed security, and compliance consulting.",
     images: ["/logo.png"],

@@ -848,17 +848,17 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Titan Shield - Leading Cybersecurity in Palestine',
-    template: '%s | Titan Shield',
+    default: 'TITAN Shield - Leading Cybersecurity in Palestine',
+    template: '%s | TITAN Shield',
   },
   description: 'Professional cybersecurity services including penetration testing, managed security, and compliance consulting.',
   keywords: ['cybersecurity', 'palestine', 'penetration testing', 'MSSP', 'red team'],
-  authors: [{ name: 'Titan Shield' }],
+  authors: [{ name: 'TITAN Shield' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://titanshield.ps',
-    siteName: 'Titan Shield',
+    siteName: 'TITAN Shield',
     images: [{ url: '/og-image.jpg' }],
   },
 };
@@ -1347,7 +1347,7 @@ export function ContactForm() {
 
       {/* Submit Button - isPending automatically managed by useActionState */}
       <Button type="submit" size="lg" className="w-full" disabled={isPending}>
-        {isPending ? 'Sending...' : 'Summon The Titans'}
+        {isPending ? 'Sending...' : 'Summon The TITANs'}
       </Button>
 
       {/* Success/Error Message */}
@@ -1438,7 +1438,7 @@ export function OrganizationStructuredData() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Titan Shield',
+    name: 'TITAN Shield',
     url: 'https://titanshield.ps',
     logo: 'https://titanshield.ps/logo.svg',
     description: 'Leading cybersecurity firm in Palestine',

@@ -59,7 +59,7 @@ function ProgressBar({ label, percentage, delay = 0 }: ProgressBarProps) {
   );
 }
 
-export function WhyTitan() {
+export function WhyTITAN() {
   return (
     <section className="relative py-24 md:py-28 bg-brand-dark overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 md:px-8">

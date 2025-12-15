@@ -190,8 +190,8 @@ export const SERVICE_TEMPLATES: Record<string, ServiceTemplateData> = {
         type: "highlighted",
         sectionTitle: "Looking for EDR",
         content:
-          "Secure your endpoints like a Titans!",
-        buttonText: "Secure your endpoints like a Titans!",
+          "Secure your endpoints like a TITANs!",
+        buttonText: "Secure your endpoints like a TITANs!",
         buttonLink: "/services/endpoint-mobile-security",
       },
     ],
@@ -236,7 +236,7 @@ export const SERVICE_TEMPLATES: Record<string, ServiceTemplateData> = {
       {
         title: "Advanced Firewall & IPS",
         content:
-          "Titan Shield deploys cutting-edge firewalls and intrusion prevention systems to block unauthorized access, detect threats in real time, and mitigate external attacks.",
+          "TITAN Shield deploys cutting-edge firewalls and intrusion prevention systems to block unauthorized access, detect threats in real time, and mitigate external attacks.",
       },
     ],
   },

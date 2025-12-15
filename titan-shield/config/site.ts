@@ -4,13 +4,13 @@
  */
 
 export const SITE_CONFIG = {
-  name: "Titan Shield",
+  name: "TITAN Shield",
   description: "Leading cybersecurity firm in Palestine providing professional security services",
   url: "https://titanshield.ps",
   ogImage: "/og-image.jpg",
 
   links: {
-    facebook: "https://www.facebook.com/PS.TitanShield",
+    facebook: "https://www.facebook.com/PS.TITANShield",
     linkedin: "https://www.linkedin.com/company/titan-shield/",
   },
 

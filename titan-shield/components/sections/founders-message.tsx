@@ -21,8 +21,8 @@ export function FoundersMessage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
       </div>
 
-      <div className="space-y-4 text-gray-300 leading-relaxed">
-        <p className="text-lg">
+      <div className="space-y-4 text-gray-300 leading-relaxed text-lg">
+        <p className="text-xl">
           <span className="text-white font-semibold">Cybersecurity is no longer just a necessity</span>
         </p>
 
@@ -31,15 +31,15 @@ export function FoundersMessage() {
         </p>
 
         <p>
-          At <span className="text-[#7C3AED]">Titan Shield</span>, we don&apos;t just protect businesses; we <span className="italic">empower</span> them to operate with confidence. Our mission is to <span className="text-white">bridge the gap</span> between security and business growth, ensuring our clients remain resilient in an ever-changing cyber landscape.
+          At <span className="text-[#7C3AED]">TITAN Shield</span>, we don&apos;t just protect businesses; we <span className="italic">empower</span> them to operate with confidence. Our mission is to <span className="text-white">bridge the gap</span> between security and business growth, ensuring our clients remain resilient in an ever-changing cyber landscape.
         </p>
 
         <p>
-          The rise of cyber threats demands a proactive approach—one that combines <span className="text-white">innovation, expertise, and relentless dedication</span>. Titan Shield was built on this philosophy. We are not just defenders, we are <span className="text-[#7C3AED]">strategic partners</span> committed to your success.
+          The rise of cyber threats demands a proactive approach—one that combines <span className="text-white">innovation, expertise, and relentless dedication</span>. TITAN Shield was built on this philosophy. We are not just defenders, we are <span className="text-[#7C3AED]">strategic partners</span> committed to your success.
         </p>
 
         <p className="text-white font-medium pt-4">
-          Thank you for trusting Titan Shield to safeguard your future.
+          Thank you for trusting TITAN Shield to safeguard your future.
         </p>
       </div>
     </div>

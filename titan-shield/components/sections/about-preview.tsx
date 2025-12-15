@@ -69,7 +69,7 @@ export function AboutPreview() {
 
           {/* Bottom brand text */}
           <div className="mt-4">
-            <p className="text-xl font-semibold text-white">Titan Shield</p>
+            <p className="text-xl font-semibold text-white">TITAN Shield</p>
             <p className="text-xl text-[#8B5CF6]">The TITANS</p>
             <p className="text-xl text-white/60">Cyber Security</p>
           </div>
@@ -89,7 +89,7 @@ export function AboutPreview() {
 
             {/* Bottom: Brand text cluster */}
             <div>
-              <p className="text-2xl font-semibold text-white mb-1">Titan Shield</p>
+              <p className="text-2xl font-semibold text-white mb-1">TITAN Shield</p>
               <p className="text-2xl text-[#8B5CF6] mb-1">The TITANS</p>
               <p className="text-2xl text-white/60">Cyber Security</p>
             </div>
@@ -116,7 +116,7 @@ export function AboutPreview() {
               <div className="flex items-start justify-center">
                 <Image
                   src="/assets/titan-warrior-graphic.png"
-                  alt="Titan Shield Logo"
+                  alt="TITAN Shield Logo"
                   width={480}
                   height={480}
                   className="max-w-full w-full h-auto"

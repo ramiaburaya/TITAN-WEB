@@ -135,7 +135,7 @@ export const SERVICES: Service[] = [
     heroImage: "/assets/services_page/servies.jpg",
     ctaImage: "/assets/services_page/criminal-hacking-system-unsuccessfully-1024x683.webp",
     description:
-      "Titans Shield's Managed Security Services provide 24/7 protection through our state-of-the-art Security Operations Center (SOC). We deliver comprehensive threat monitoring, detection, and response capabilities to protect your organization from evolving cyber threats. Our MSSP offering enhances your cybersecurity posture by combining advanced technologies, expert analysts, and proactive defense strategies.",
+      "TITANs Shield's Managed Security Services provide 24/7 protection through our state-of-the-art Security Operations Center (SOC). We deliver comprehensive threat monitoring, detection, and response capabilities to protect your organization from evolving cyber threats. Our MSSP offering enhances your cybersecurity posture by combining advanced technologies, expert analysts, and proactive defense strategies.",
     features: [
       "24/7 security monitoring (SOC)",
       "Security incident & event management (SIEM)",
@@ -155,7 +155,7 @@ export const SERVICES: Service[] = [
     ],
     overview: {
       title: "Overview Benefits of Managed Security Services",
-      description: "In today's fast-evolving digital landscape, businesses face sophisticated cyber threats that can disrupt operations, compromise sensitive data, and lead to significant financial and reputational damage. Managed Security Services (MSS) by The Titans provide a proactive, 24/7 security framework designed to protect your infrastructure, data, and operations.\n\nBy leveraging cutting-edge security technologies, expert threat intelligence, and real-time monitoring, our MSS solutions offer a fully managed and scalable approach to cybersecurity. This ensures continuous protection against malware, ransomware, phishing, insider threats, and other cyber risks—without the burden of managing security in-house.",
+      description: "In today's fast-evolving digital landscape, businesses face sophisticated cyber threats that can disrupt operations, compromise sensitive data, and lead to significant financial and reputational damage. Managed Security Services (MSS) by The TITANs provide a proactive, 24/7 security framework designed to protect your infrastructure, data, and operations.\n\nBy leveraging cutting-edge security technologies, expert threat intelligence, and real-time monitoring, our MSS solutions offer a fully managed and scalable approach to cybersecurity. This ensures continuous protection against malware, ransomware, phishing, insider threats, and other cyber risks—without the burden of managing security in-house.",
     },
     color: "from-orange-600 to-red-600",
   },
@@ -169,7 +169,7 @@ export const SERVICES: Service[] = [
     heroImage: "/assets/services_page/servies.jpg",
     ctaImage: "/assets/services_page/criminal-hacking-system-unsuccessfully-1024x683.webp",
     description:
-      "Titan Shield's Technical Security & Infrastructure Protection secures your entire IT stack with a layered defense approach, advanced monitoring, and hardening techniques. We provide continuous risk management, real-time threat detection, and tailored security measures to protect networks, applications, and databases from evolving cyber threats.",
+      "TITAN Shield's Technical Security & Infrastructure Protection secures your entire IT stack with a layered defense approach, advanced monitoring, and hardening techniques. We provide continuous risk management, real-time threat detection, and tailored security measures to protect networks, applications, and databases from evolving cyber threats.",
     features: [
       "Next-generation firewall (NGFW) deployment",
       "Intrusion detection and prevention (IDS/IPS)",
@@ -203,7 +203,7 @@ export const SERVICES: Service[] = [
     heroImage: "/assets/services_page/servies.jpg",
     ctaImage: "/assets/services_page/criminal-hacking-system-unsuccessfully-1024x683.webp",
     description:
-      "Titan Shield's Cybersecurity Training offers role-based programs to build a security-conscious culture. From basic awareness to advanced IT training, we equip your team with the skills to recognize and mitigate threats, reducing human error and risk.",
+      "TITAN Shield's Cybersecurity Training offers role-based programs to build a security-conscious culture. From basic awareness to advanced IT training, we equip your team with the skills to recognize and mitigate threats, reducing human error and risk.",
     features: [
       "Security awareness training programs",
       "Phishing simulation campaigns",

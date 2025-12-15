@@ -24,7 +24,7 @@ export function NewsletterSection() {
       <div className="fixed inset-0 -z-10">
         <Image
           src="/assets/newsletter-bg.png"
-          alt="Titan Shield newsletter background with cybersecurity branding"
+          alt="TITAN Shield newsletter background with cybersecurity branding"
           fill
           className="object-cover"
           quality={75}
