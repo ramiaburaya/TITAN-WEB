@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Expert } from "@/types";
-import { Linkedin, Github, Mail, Phone } from "lucide-react";
+import { Linkedin, Github } from "lucide-react";
 
 interface ExpertCVContentProps {
   expert: Expert;
@@ -72,29 +72,8 @@ export function ExpertCVContent({ expert }: ExpertCVContentProps) {
             )}
           </div>
 
-          {/* Contact Info - Enhanced */}
-          {(expert.email || expert.phone) && (
-            <div className="flex flex-wrap gap-4 text-sm md:text-base">
-              {expert.email && (
-                <a
-                  href={`mailto:${expert.email}`}
-                  className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-[#8B5CF6]/50 transition-all duration-300 group"
-                >
-                  <Mail className="w-4 h-4 text-[#8B5CF6] group-hover:scale-110 transition-transform" />
-                  <span className="text-gray-300 group-hover:text-white transition-colors">{expert.email}</span>
-                </a>
-              )}
-              {expert.phone && (
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-white/10">
-                  <Phone className="w-4 h-4 text-[#8B5CF6]" />
-                  <span className="text-gray-300">{expert.phone}</span>
-                </div>
-              )}
-            </div>
-          )}
-
           {/* Social Links - Enhanced */}
-          {(expert.linkedin || expert.github || expert.facebook) && (
+          {(expert.linkedin || expert.github) && (
             <div className="flex gap-3">
               {expert.linkedin && (
                 <Link
@@ -118,17 +97,6 @@ export function ExpertCVContent({ expert }: ExpertCVContentProps) {
                   <GithubIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </Link>
               )}
-              {expert.facebook && (
-                <Link
-                  href={expert.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-white/5 hover:bg-[#8B5CF6] rounded-xl border border-white/10 hover:border-[#8B5CF6] transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#8B5CF6]/20 group"
-                  aria-label="Facebook Profile"
-                >
-                  <FacebookIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                </Link>
-              )}
             </div>
           )}
         </div>
@@ -138,21 +106,6 @@ export function ExpertCVContent({ expert }: ExpertCVContentProps) {
       <div className="relative h-px mb-10">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#8B5CF6]/50 to-transparent"></div>
       </div>
-
-      {/* Bio Section - Enhanced */}
-      {expert.bio && (
-        <section className="mb-10">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="h-8 w-1 bg-gradient-to-b from-[#8B5CF6] to-[#7C3AED] rounded-full"></div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white">
-              About
-            </h3>
-          </div>
-          <p className="text-gray-300 leading-relaxed text-base md:text-lg pl-4 border-l-2 border-white/5">
-            {expert.bio}
-          </p>
-        </section>
-      )}
 
       {/* Skills Section - Enhanced */}
       {expert.skills && expert.skills.length > 0 && (
@@ -178,9 +131,9 @@ export function ExpertCVContent({ expert }: ExpertCVContentProps) {
 
       {/* Certifications Section - Enhanced */}
       {expert.certifications && expert.certifications.length > 0 && (
-        <section className="mb-10">
+        <section className="mb-6">
           <div className="flex items-center gap-3 mb-5">
-            <div className="h-8 w-1 bg-gradient-to-b from-[#8B5CF6] to-[#7C3AED] rounded-full"></div>
+            <div className="h-8 w-1 bg-linear-to-b from-[#8B5CF6] to-[#7C3AED] rounded-full"></div>
             <h3 className="text-2xl md:text-3xl font-bold text-white">
               Certifications
             </h3>
@@ -189,7 +142,7 @@ export function ExpertCVContent({ expert }: ExpertCVContentProps) {
             {expert.certifications.map((cert, index) => (
               <div
                 key={index}
-                className="group p-5 bg-gradient-to-br from-white/5 to-white/[0.02] rounded-xl border border-white/10 hover:border-[#8B5CF6]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#8B5CF6]/10"
+                className="group p-5 bg-linear-to-br from-white/5 to-white/2 rounded-xl border border-white/10 hover:border-[#8B5CF6]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#8B5CF6]/10"
               >
                 <h4 className="font-bold text-white text-base md:text-lg mb-1 group-hover:text-[#8B5CF6] transition-colors">
                   {cert.name}
@@ -215,111 +168,6 @@ export function ExpertCVContent({ expert }: ExpertCVContentProps) {
               </div>
             ))}
           </div>
-        </section>
-      )}
-
-      {/* Experience Section - Enhanced Timeline */}
-      {expert.experience && expert.experience.length > 0 && (
-        <section className="mb-10">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="h-8 w-1 bg-linear-to-b from-[#8B5CF6] to-[#7C3AED] rounded-full"></div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white">
-              Experience
-            </h3>
-          </div>
-          <div className="space-y-6">
-            {expert.experience.map((exp, index) => (
-              <div key={index} className="relative pl-8 border-l-2 border-[#8B5CF6]/20 hover:border-[#8B5CF6]/50 transition-colors duration-300 group">
-                {/* Enhanced Timeline dot with pulse effect */}
-                <div className="absolute left-0 top-2 w-4 h-4 -translate-x-[9px]">
-                  <div className="absolute inset-0 bg-[#8B5CF6] rounded-full group-hover:scale-125 transition-transform duration-300"></div>
-                  <div className="absolute inset-0 bg-[#8B5CF6] rounded-full animate-ping opacity-20"></div>
-                </div>
-
-                <div className="pb-6">
-                  <h4 className="font-bold text-white text-lg md:text-xl group-hover:text-[#8B5CF6] transition-colors">
-                    {exp.title}
-                  </h4>
-                  {exp.company && (
-                    <p className="text-sm md:text-base text-gray-400 mt-1 font-medium">{exp.company}</p>
-                  )}
-                  <p className="text-xs md:text-sm text-[#8B5CF6] mt-1 font-semibold">{exp.period}</p>
-
-                  {exp.description && (
-                    <p className="text-gray-300 mt-3 text-sm md:text-base leading-relaxed">
-                      {exp.description}
-                    </p>
-                  )}
-
-                  {exp.highlights && exp.highlights.length > 0 && (
-                    <ul className="mt-4 space-y-2">
-                      {exp.highlights.map((highlight, idx) => (
-                        <li key={idx} className="text-sm md:text-base text-gray-300 flex items-start gap-3 group/item">
-                          <span className="text-[#8B5CF6] text-lg leading-none group-hover/item:scale-125 transition-transform">▹</span>
-                          <span className="flex-1">{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Education Section - Enhanced Cards */}
-      {expert.education && expert.education.length > 0 && (
-        <section className="mb-10">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="h-8 w-1 bg-linear-to-b from-[#8B5CF6] to-[#7C3AED] rounded-full"></div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white">
-              Education
-            </h3>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            {expert.education.map((edu, index) => (
-              <div
-                key={index}
-                className="group p-5 bg-linear-to-br from-white/5 to-white/2 rounded-xl border border-white/10 hover:border-[#8B5CF6]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#8B5CF6]/10"
-              >
-                <h4 className="font-bold text-white text-base md:text-lg mb-2 group-hover:text-[#8B5CF6] transition-colors">
-                  {edu.degree}
-                </h4>
-                <p className="text-sm md:text-base text-gray-400 font-medium">
-                  {edu.institution}
-                </p>
-                <p className="text-xs md:text-sm text-[#8B5CF6] mt-2 font-semibold">
-                  {edu.year}
-                </p>
-                {edu.field && (
-                  <p className="text-xs text-gray-500 mt-2 bg-white/5 px-2 py-1 rounded inline-block">
-                    {edu.field}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Achievements Section - Enhanced with Icons */}
-      {expert.achievements && expert.achievements.length > 0 && (
-        <section className="mb-6">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="h-8 w-1 bg-linear-to-b from-[#8B5CF6] to-[#7C3AED] rounded-full"></div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white">
-              Achievements & Recognition
-            </h3>
-          </div>
-          <ul className="space-y-3">
-            {expert.achievements.map((achievement, index) => (
-              <li key={index} className="group flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors duration-300">
-                <span className="text-[#8B5CF6] text-xl leading-none group-hover:scale-125 transition-transform mt-0.5">⭐</span>
-                <span className="text-gray-300 group-hover:text-white text-sm md:text-base transition-colors flex-1">{achievement}</span>
-              </li>
-            ))}
-          </ul>
         </section>
       )}
     </div>

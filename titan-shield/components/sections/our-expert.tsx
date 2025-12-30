@@ -43,192 +43,179 @@ const FacebookIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// Sample data with complete CV information
+// Actual employee data - Skills and Certifications only
 const experts: Expert[] = [
   {
     name: "Sami Elsheikh",
     title: "Co-Founder / CTO",
-    subtitle: "Senior Security Consultant",
     image: "/assets/About_Us_Page/hacker-1.png",
-    linkedin: "https://www.linkedin.com/in/samielsheikh/",
-    facebook: "https://www.facebook.com/sami.elsheikh/",
-    bio: "Cybersecurity expert with over 10 years of experience in penetration testing, security architecture, and team leadership. Passionate about building secure systems and mentoring the next generation of security professionals.",
-    email: "sami@titanshield.com",
-    skills: ["Penetration Testing", "Security Architecture", "Threat Modeling", "Incident Response", "Python", "Bash Scripting", "Network Security", "Web Application Security", "Mobile Security", "Cloud Security"],
+    linkedin: "",
+    skills: [],
+    certifications: [],
+  },
+  {
+    name: "Rami Aburayya",
+    title: "Cyber Security Engineer",
+    subtitle: "Penetration Testing & Red Team Operations",
+    image: "/assets/About_Us_Page/hacker-1.png",
+    linkedin: "https://www.linkedin.com/in/ramiaburayya/",
+    bio: "Cyber Security Engineer with hands-on expertise in penetration testing, red team operations, DevOps, and cloud environments. Passionate about ethical hacking, identifying real-world vulnerabilities, and strengthening systems through proactive, resilience-driven security practices.",
+    skills: [
+      "Penetration Testing",
+      "Vulnerability Scanning",
+      "Incident Recovery",
+      "Incident Containment",
+      "Incident Response",
+      "Privilege Escalation",
+      "Web Exploitation"
+    ],
     certifications: [
-      { name: "Offensive Security Certified Professional (OSCP)", issuer: "Offensive Security", date: "2018" },
-      { name: "Certified Ethical Hacker (CEH)", issuer: "EC-Council", date: "2017" },
-      { name: "GIAC Penetration Tester (GPEN)", issuer: "SANS", date: "2019" },
+      { name: "OSCP", issuer: "Offensive Security", date: "" },
+      { name: "OSIR", issuer: "Offensive Security", date: "" },
+      { name: "OSTH", issuer: "Offensive Security", date: "" },
     ],
-    experience: [
-      { title: "Co-Founder & CTO", company: "TITAN Shield", period: "2020 - Present", highlights: ["Built team of 10+ security professionals", "Delivered 100+ penetration testing projects", "Established security training program"] },
-      { title: "Senior Security Consultant", company: "CyberDefense Corp", period: "2015 - 2020", highlights: ["Conducted security assessments for Fortune 500 clients", "Led incident response team", "Developed custom security tools"] },
-    ],
-    education: [
-      { degree: "M.Sc. Computer Science", institution: "Palestinian Polytechnic University", year: "2015", field: "Cybersecurity" },
-      { degree: "B.Sc. Computer Engineering", institution: "Birzeit University", year: "2013" },
-    ],
-    achievements: ["Speaker at Black Hat Middle East 2023", "Published research on APT techniques", "Contributor to open-source security tools"],
   },
   {
     name: "Abdallah Bakr",
-    title: "Cybersecurity Engineer",
-    subtitle: "OSDA/OSIR Certified",
+    title: "Cybersecurity Professional",
     image: "/assets/About_Us_Page/hacker-1.png",
-    linkedin: "https://www.linkedin.com/in/abdallahbakr/",
-    bio: "Specialized in digital forensics and incident response with a strong background in malware analysis and threat hunting. Committed to staying ahead of emerging cyber threats.",
-    email: "abdallah@titanshield.com",
-    skills: ["Digital Forensics", "Incident Response", "Malware Analysis", "Threat Hunting", "SIEM", "Python", "PowerShell", "Memory Forensics", "Network Analysis"],
+    linkedin: "https://linkedin.com/in/abdallahbakr",
+    bio: "Results-driven Cybersecurity professional committed to continuous learning and staying ahead of emerging cyber threats.",
+    skills: [],
     certifications: [
-      { name: "OffSec Defense Analyst (OSDA)", issuer: "Offensive Security", date: "2022" },
-      { name: "OffSec Incident Responder (OSIR)", issuer: "Offensive Security", date: "2023" },
-      { name: "GIAC Certified Incident Handler (GCIH)", issuer: "SANS", date: "2021" },
-    ],
-    experience: [
-      { title: "Cybersecurity Engineer", company: "TITAN Shield", period: "2021 - Present", highlights: ["Led 50+ incident response engagements", "Developed custom forensic tools", "Trained junior analysts"] },
-      { title: "SOC Analyst", company: "SecureNet Solutions", period: "2019 - 2021", highlights: ["Monitored and analyzed security events", "Improved threat detection capabilities"] },
-    ],
-    education: [
-      { degree: "B.Sc. Information Technology", institution: "An-Najah National University", year: "2019", field: "Cybersecurity" },
-    ],
-  },
-  {
-    name: "Rami AbuRayya",
-    title: "Information Security Engineer",
-    subtitle: "OSCP Certified",
-    image: "/assets/About_Us_Page/hacker-1.png",
-    linkedin: "https://www.linkedin.com/in/ramiaburayya/",
-    bio: "Offensive security specialist focused on web application penetration testing and vulnerability research. Experienced in identifying and exploiting complex security flaws.",
-    skills: ["Web Application Security", "Penetration Testing", "Vulnerability Assessment", "Burp Suite", "OWASP Top 10", "API Security", "JavaScript", "SQL Injection", "XSS"],
-    certifications: [
-      { name: "Offensive Security Certified Professional (OSCP)", issuer: "Offensive Security", date: "2021" },
-      { name: "Certified Web Application Defender (CWAD)", issuer: "EC-Council", date: "2020" },
-    ],
-    experience: [
-      { title: "Information Security Engineer", company: "TITAN Shield", period: "2020 - Present", highlights: ["Conducted 80+ web application assessments", "Discovered critical vulnerabilities in major platforms", "Developed secure coding guidelines"] },
-      { title: "Junior Pentester", company: "WebSec Pro", period: "2018 - 2020" },
-    ],
-    education: [
-      { degree: "B.Sc. Software Engineering", institution: "Palestine Technical University", year: "2018" },
+      { name: "SSCDA", issuer: "", date: "" },
+      { name: "OSDA", issuer: "Offensive Security", date: "" },
+      { name: "OSIR", issuer: "Offensive Security", date: "" },
     ],
   },
   {
     name: "Omar Mousa",
-    title: "Information Security Engineer",
-    subtitle: "OSCP Certified",
+    title: "R&D Researcher & Offensive Security Engineer",
+    subtitle: "Red Team Specialist",
     image: "/assets/About_Us_Page/hacker-1.png",
     linkedin: "https://www.linkedin.com/in/omar-mousa15/",
-    bio: "Network security expert with deep knowledge of infrastructure penetration testing and secure network design. Passionate about breaking and securing complex network architectures.",
-    skills: ["Network Penetration Testing", "Infrastructure Security", "Wireless Security", "Firewall Configuration", "VPN", "Cisco", "Wireshark", "Metasploit", "Nmap"],
+    bio: "R&D Researcher, Offensive Security Engineer, and Red Team Specialist with a primary focus on malware development and detection evasion. Experienced in designing custom payloads, building resilient C2 infrastructures, and analyzing EDR/AV detection logic through realistic adversary simulation and advanced attacker tradecraft research.",
+    skills: [
+      "Malware Development & Payload Engineering",
+      "Red Team Adversary Simulation",
+      "C2 Design & Covert Communication Channels",
+      "Exploit Development (User-Mode Focus)",
+      "Endpoint & Evasion Research"
+    ],
     certifications: [
-      { name: "Offensive Security Certified Professional (OSCP)", issuer: "Offensive Security", date: "2022" },
-      { name: "Cisco Certified Network Associate (CCNA)", issuer: "Cisco", date: "2020" },
-    ],
-    experience: [
-      { title: "Information Security Engineer", company: "TITAN Shield", period: "2021 - Present", highlights: ["Performed network security assessments", "Designed secure network architectures", "Conducted wireless security audits"] },
-      { title: "Network Administrator", company: "TechNet Solutions", period: "2019 - 2021" },
-    ],
-    education: [
-      { degree: "B.Sc. Computer Networks", institution: "Hebron University", year: "2019" },
+      { name: "OSCP", issuer: "Offensive Security", date: "" },
+      { name: "OSWA", issuer: "Offensive Security", date: "" },
+      { name: "CCNA", issuer: "Cisco", date: "" },
     ],
   },
   {
-    name: "Ali Abawh",
-    title: "Information Security Engineer",
-    subtitle: "OSCP Certified",
+    name: "Ali Abwah",
+    title: "Information Security Specialist",
+    subtitle: "Penetration Testing & Red Team Operations",
     image: "/assets/About_Us_Page/hacker-1.png",
-    linkedin: "https://www.linkedin.com/in/ali-abwah/",
-    bio: "Cloud security specialist with expertise in AWS and Azure security assessments. Focused on securing cloud infrastructure and implementing DevSecOps practices.",
-    skills: ["Cloud Security", "AWS", "Azure", "DevSecOps", "Container Security", "Kubernetes", "Terraform", "CI/CD Security", "IAM"],
+    linkedin: "https://www.linkedin.com/in/ali-abwah",
+    bio: "Information Security Specialist specializing in penetration testing and red team operations. Experienced in full-scope offensive security engagements, including exploit development, privilege escalation, lateral movement, and EDR/AV evasion. Strong background in network security, routing and switching, firewalling, VPNs, and wireless security, with solid hands-on experience in enterprise networking environments. Focused on realistic adversary simulation and delivering actionable security improvements.",
+    skills: [
+      "Red Team Operations",
+      "Vulnerability Scanning",
+      "Web Exploitation",
+      "Privilege Escalation",
+      "EDR / AV Evasion",
+      "Lateral Movement",
+      "Network & Wireless Security",
+      "Windows & Linux Security",
+      "Incident Response & Containment"
+    ],
     certifications: [
-      { name: "Offensive Security Certified Professional (OSCP)", issuer: "Offensive Security", date: "2021" },
-      { name: "AWS Certified Security Specialty", issuer: "Amazon", date: "2022" },
-    ],
-    experience: [
-      { title: "Information Security Engineer", company: "TITAN Shield", period: "2020 - Present", highlights: ["Secured 40+ cloud environments", "Implemented DevSecOps pipelines", "Conducted cloud security training"] },
-      { title: "Cloud Engineer", company: "CloudTech Inc", period: "2018 - 2020" },
-    ],
-    education: [
-      { degree: "B.Sc. Computer Science", institution: "Islamic University of Gaza", year: "2018" },
+      { name: "OSCP", issuer: "Offensive Security", date: "" },
+      { name: "CCNA", issuer: "Cisco", date: "" },
+      { name: "FCA", issuer: "Fortinet", date: "" },
     ],
   },
   {
     name: "Amani Hushieh",
-    title: "Information Security",
-    subtitle: "OSWA Certified",
+    title: "Information Security Specialist",
+    subtitle: "Web & API Penetration Testing",
     image: "/assets/About_Us_Page/hacker-1.png",
-    linkedin: "https://www.linkedin.com/in/amani-hushieh/",
-    bio: "Security researcher specializing in web application security and secure software development. Dedicated to helping organizations build security into their development lifecycle.",
-    skills: ["Web Application Security", "Secure Coding", "OWASP", "React Security", "Node.js Security", "Security Testing", "Code Review", "SAST/DAST"],
+    linkedin: "https://www.linkedin.com/in/amani-hushieh",
+    bio: "Information Security Specialist specializing in Web and API penetration testing and offensive security. Experienced in identifying real-world application vulnerabilities.",
+    skills: [
+      "Web and API Penetration Testing",
+      "Vulnerability Scanning"
+    ],
     certifications: [
-      { name: "OffSec Web Assessor (OSWA)", issuer: "Offensive Security", date: "2022" },
-      { name: "Certified Secure Software Lifecycle Professional (CSSLP)", issuer: "ISC2", date: "2021" },
-    ],
-    experience: [
-      { title: "Information Security Specialist", company: "TITAN Shield", period: "2021 - Present", highlights: ["Conducted security code reviews", "Developed secure coding training", "Performed web app assessments"] },
-      { title: "Software Developer", company: "DevSoft Ltd", period: "2019 - 2021" },
-    ],
-    education: [
-      { degree: "B.Sc. Software Engineering", institution: "Birzeit University", year: "2019" },
-    ],
-  },
-  {
-    name: "Rawan Samara",
-    title: "Information Security Engineer",
-    subtitle: "OSWA Certified",
-    image: "/assets/About_Us_Page/hacker-1.png",
-    linkedin: "https://www.linkedin.com/in/rawan-samara-444814127/",
-    bio: "Application security engineer with focus on API security and modern web frameworks. Experienced in identifying business logic flaws and authentication bypasses.",
-    skills: ["API Security", "Authentication Security", "OAuth/OIDC", "JWT", "GraphQL Security", "REST API", "Postman", "Business Logic Testing"],
-    certifications: [
-      { name: "OffSec Web Assessor (OSWA)", issuer: "Offensive Security", date: "2023" },
-      { name: "Certified API Security Professional (CASP)", issuer: "APISec", date: "2022" },
-    ],
-    experience: [
-      { title: "Information Security Engineer", company: "TITAN Shield", period: "2022 - Present", highlights: ["Assessed 60+ API implementations", "Discovered authentication flaws", "Created API security guidelines"] },
-      { title: "QA Engineer", company: "SoftwareLabs", period: "2020 - 2022" },
-    ],
-    education: [
-      { degree: "B.Sc. Computer Science", institution: "An-Najah National University", year: "2020" },
-    ],
-  },
-  {
-    name: "Sondos Ashraf",
-    title: "Information Security Engineer",
-    subtitle: "OSWA Certified",
-    image: "/assets/About_Us_Page/hacker-1.png",
-    linkedin: "https://www.linkedin.com/in/sondos-farrah/",
-    bio: "Mobile application security specialist with expertise in iOS and Android security testing. Focused on securing mobile apps and protecting user data.",
-    skills: ["Mobile Security", "iOS Security", "Android Security", "Mobile App Pentesting", "Frida", "Objection", "Binary Analysis", "SSL Pinning Bypass"],
-    certifications: [
-      { name: "OffSec Web Assessor (OSWA)", issuer: "Offensive Security", date: "2022" },
-      { name: "Mobile Application Security Tester (MAST)", issuer: "SANS", date: "2023" },
-    ],
-    experience: [
-      { title: "Information Security Engineer", company: "TITAN Shield", period: "2021 - Present", highlights: ["Tested 50+ mobile applications", "Identified critical mobile vulnerabilities", "Developed mobile security testing methodology"] },
-      { title: "Mobile Developer", company: "AppDev Studio", period: "2019 - 2021" },
-    ],
-    education: [
-      { degree: "B.Sc. Information Systems", institution: "Palestine Polytechnic University", year: "2019" },
+      { name: "OSWA", issuer: "Offensive Security", date: "" },
     ],
   },
   {
     name: "Malak Azzam",
     title: "Information Security Engineer",
-    subtitle: "Security Analyst",
     image: "/assets/About_Us_Page/hacker-1.png",
-    linkedin: "https://www.linkedin.com/in/eng-malak-azam-926306238/",
-    bio: "Junior security engineer focused on vulnerability management and security assessments. Eager to learn and grow in the cybersecurity field.",
-    skills: ["Vulnerability Assessment", "Security Scanning", "Nessus", "OpenVAS", "Report Writing", "Risk Assessment", "Compliance", "Security Awareness"],
+    linkedin: "",
+    skills: [],
+    certifications: [],
+  },
+  {
+    name: "Rawan Samara",
+    title: "Information Security Engineer",
+    subtitle: "Offensive & Defensive Security",
+    image: "/assets/About_Us_Page/hacker-1.png",
+    linkedin: "https://www.linkedin.com/in/rawansamara",
+    bio: "Information Security Engineer specializing in offensive and defensive security, with a focus on web application penetration testing and practical security assessments. Holds a Bachelor of Engineering and an MSc in Cybercrimes and Digital Evidence Analysis, and is offensive security certified, with hands-on experience identifying real-world vulnerabilities through ethical hacking and adversary-focused testing. Results-driven professional committed to continuous learning and strengthening systems.",
+    skills: [
+      "Web Application Penetration Testing",
+      "Vulnerability Assessment"
+    ],
     certifications: [
-      { name: "CompTIA Security+", issuer: "CompTIA", date: "2022" },
+      { name: "OSWA", issuer: "Offensive Security", date: "" },
+      { name: "Fortinet Certified Fundamentals", issuer: "Fortinet", date: "" },
     ],
-    experience: [
-      { title: "Information Security Engineer", company: "TITAN Shield", period: "2022 - Present", highlights: ["Conducted vulnerability assessments", "Assisted in penetration testing engagements", "Created security documentation"] },
+  },
+  {
+    name: "Batoul Alnahawi",
+    title: "Information Security Engineer",
+    subtitle: "Penetration Tester",
+    image: "/assets/About_Us_Page/hacker-1.png",
+    linkedin: "https://www.linkedin.com/in/batool-alnahawi/",
+    bio: "Information Security Engineer and Penetration Tester specializing in identifying, analyzing, and mitigating security risks. As an OSWA-certified professional, I focus on web and API security, vulnerability assessment, and penetration testing to help organizations strengthen their defenses and protect critical assets.",
+    skills: [
+      "Web & API Penetration Testing",
+      "Vulnerability Assessment"
     ],
-    education: [
-      { degree: "B.Sc. Computer Engineering", institution: "Hebron University", year: "2022" },
+    certifications: [
+      { name: "OSWA", issuer: "Offensive Security", date: "" },
     ],
+  },
+  {
+    name: "Sondos Farrah",
+    title: "Information Security Engineer",
+    subtitle: "Penetration Tester",
+    image: "/assets/About_Us_Page/hacker-1.png",
+    linkedin: "https://www.linkedin.com/in/sondos-farrah/",
+    bio: "Information Security Engineer & Penetration Tester, OSWA-certified, with strong experience in securing web applications and APIs, performing advanced vulnerability assessments, and conducting professional penetration tests. Skilled in identifying complex security flaws and delivering actionable remediation strategies to strengthen organizational security posture, reduce risk, and protect critical assets.",
+    skills: [
+      "Web and API Penetration Testing",
+      "Vulnerability Scanning"
+    ],
+    certifications: [
+      { name: "OSWA", issuer: "Offensive Security", date: "" },
+    ],
+  },
+  {
+    name: "Islam Hmeedat",
+    title: "Information Security Engineer",
+    image: "/assets/About_Us_Page/hacker-1.png",
+    linkedin: "",
+    skills: [],
+    certifications: [],
+  },
+  {
+    name: "Mira Abdo",
+    title: "Information Security Engineer",
+    image: "/assets/About_Us_Page/hacker-1.png",
+    linkedin: "",
+    skills: [],
+    certifications: [],
   },
 ];
 
